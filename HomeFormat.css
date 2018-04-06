@@ -1,0 +1,257 @@
+@import "https://fonts.googleapis.com/css?family=Amiko";
+
+html,
+body {
+  font: 15px/1.5 Amiko, Arial, sans-serif;
+  margin-top: -25px;
+  margin-right: 0;
+  margin-left: 0;
+  margin-bottom: -5px;
+  width: 100%;
+  background-color: #f4f4f4;
+}
+
+body {
+  font-family: Amiko;
+  width: 100%;
+  text-align: center
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  min-height: 80px;
+  background-size: cover;
+  background-color:#4fb3bf;
+}
+
+.contentHome {
+  width: 90%;
+  margin:4em auto;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: justify;
+  padding-top: 200px;
+}
+
+.contentSubPage {
+  width: 90%;
+  margin:4em auto;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: justify;
+  padding-top: 0;
+}
+
+#contentWelcome {
+  padding-top: -200px;
+}
+
+.logo {
+  position: fixed;
+  float: left;
+  margin-top: 0;
+  margin-left: 36px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+}
+
+nav ul {
+  list-style: none;
+  background: rgba(0, 0, 0, 0);
+  overflow: hidden;
+  color: #fff;
+  padding: 0px;
+  text-align: center;
+  margin: 0px;
+  transition: 1s;
+}
+
+nav.black ul {
+  background: rgba(0, 131, 143, 0.9);
+  border-bottom: #b4ffff 3px solid;
+}
+
+nav ul li {
+  display: inline-block;
+  padding: 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+}
+
+header .highlight,
+header .current a {
+  color: #b4ffff;
+  font-weight: bold;
+}
+
+header a:hover {
+  color:#b4ffff;
+  font-weight:bold;
+  text-decoration:underline;
+}
+
+a, a:visited, a:hover, a:active {
+  color: inherit;
+}
+
+#showcase {
+  text-align: center;
+}
+
+#showcase .patientSubPage{
+	color: white;
+	min-height: 200px;
+	background: url("blueBanner.jpg")
+    no-repeat;
+	background-size: cover;
+}
+
+#showcase .patientSubPage h1 {
+  padding-top: 110px;
+  font-size: 55px;
+  margin-bottom: 10px;
+}
+
+#showcase .patientSubPage p {
+  font-size: 20px;
+  padding-bottom:50px;
+}
+
+#showcase .scheduling{
+	color: white;
+	min-height: 680px;
+	background: url("https://stylistagenda.com/media/1098/paper-appointment-book3-dark.jpg?anchor=center&mode=crop&width=1140&height=600&rnd=131450407640000000")
+    no-repeat;
+	background-size: cover;
+}
+
+#showcase .loginScreen{
+	color: black;
+	min-height: 700px;
+	background: url("loginBackground.jpg")
+    no-repeat;
+	background-size: cover;
+	
+}
+
+#showcase .welcomeScreen{
+	color: white;
+	min-height: 1000px;
+	background: url("welcomePage.png")
+    no-repeat;
+	background-size: cover;
+	
+}
+#showcase h1 {
+  padding-top: 300px;
+  font-size: 55px;
+  margin-bottom: 10px;
+}
+
+#showcase p {
+  font-size: 20px;
+  padding-bottom:100px;
+}
+
+#boxes {
+  margin-top:20px;
+}
+
+#boxes .box {
+  float:left;
+  text-align:center;
+  width: 25%;
+  padding:0px;
+}
+
+#boxes .current {
+  box-shadow: 0px 8px rgba(0, 131, 143, 0.9);
+}
+
+#boxes .box img {
+  width:120px;
+  margin-bottom:20px;
+}
+
+#boxes .box:hover {
+  font-weight:bold;
+  box-shadow: 0px 8px rgba(0, 131, 143, 0.9);
+}
+
+footer {
+  color:#ffffff;
+  background-color:#4fb3bf;
+  text-align:center;
+  min-height: 10px;
+  padding: 10px;
+}
+
+
+
+input[type=text], [type=password],[type=date],select {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 20%;
+    background-color: #4fb3bf;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+	font-weight: bold;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+
+
+
+
+@media (max-width: 580px) {
+  .logo {
+    position: fixed;
+    margin-top: 16px;
+  }
+
+  nav ul {
+    max-height: 0px;
+    background: #000;
+  }
+
+  nav.black ul {
+    background: #000;
+  }
+
+  .showing {
+    max-height: 20em;
+  }
+
+  nav ul li {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 24px 0;
+    text-align: center;
+  }
+}
