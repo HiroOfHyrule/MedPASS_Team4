@@ -25,20 +25,20 @@
     </header>
 
     <section id="showcase">
-      <div class="doctorSubPage">
-        <h2>Your Practitioner Information</h2>
+      <div class="patientSubPage">
+        <h1>Your Practitioner Information</h1>
       </div>
     </section>
   </div>
 
   <section id"content">
     <div class="container contentSubPage">
-      <p2>
+      <p>
 		<label for="treat">Treatment:</label>
 		<input type="text" id="treat" name="treatment" placeholder="Treatment..">
 		<br>
 	  <a href="MedPASS_DoctorManagePatientInfo.php"><input type="submit" value="Submit Treatment"></a>
-      </p2>
+      </p>
 
     </div>
   </section>

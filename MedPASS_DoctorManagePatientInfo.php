@@ -25,15 +25,15 @@
     </header>
 
     <section id="showcase">
-      <div class="doctorSubPage">
-        <h2>Your Practitioner Information</h2>
+      <div class="patientSubPage">
+        <h1>Your Practitioner Information</h1>
       </div>
     </section>
   </div>
 
   <section id"content">
     <div class="container contentSubPage">
-      <p2>
+      <p>
       Patient ID: <br>
 	  First Name: <br>
 	  Last Name: <br>
@@ -52,7 +52,7 @@
       Treatments: <br>  
 	  <a href="MedPASS_DoctorAddTreatment.php"><input type="submit" value="Add Treatments"></a> 
       <a href="MedPASS_DoctorEditIllness.php"><input type="submit" value="Edit Illnesses"></a>
-      </p2>
+      </p>
 
     </div>
   </section>

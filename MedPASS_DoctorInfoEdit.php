@@ -26,15 +26,15 @@
     </header>
 
     <section id="showcase">
-      <div class="doctorSubPage">
-        <h2>Edit Your Practitioner Information</h2>
+      <div class="patientSubPage">
+        <h1>Edit Your Practitioner Information</h1>
       </div>
     </section>
   </div>
 
   <section id"content">
     <div class="container contentSubPage">
-      <p2>
+      <p>
 		<label for="fname">First Name:</label>
 		<input type="text" id="fname" name="firstname" placeholder="Your first name..">
 		<br>
@@ -54,7 +54,7 @@
 		<input type="text" id="specialization" name="specialization" placeholder="Your specialization..">
 		<br>
 	  <a href="MedPASS_DoctorInfo.php"><input type="submit" value="Submit Edit Info"></a>
-      </p2>
+      </p>
 
     </div>
   </section>

@@ -25,15 +25,15 @@
     </header>
 
     <section id="showcase">
-      <div class="doctorSubPage">
-        <h2>Your Practitioner Information</h2>
+      <div class="patientSubPage">
+        <h1>Your Practitioner Information</h1>
       </div>
     </section>
   </div>
 
   <section id"content">
     <div class="container contentSubPage">
-      <p2>
+      <p>
       Employee ID: <br>
 	  First Name: <br>
 	  Last Name: <br>
@@ -42,7 +42,7 @@
 	  Email: <br>
       Specialization: <br>
 	  <a href="MedPASS_DoctorInfoEdit.php"><input type="submit" value="Edit Info"></a>
-      </p2>
+      </p>
 
     </div>
   </section>

@@ -109,7 +109,7 @@ a, a:visited, a:hover, a:active {
   text-align: center;
 }
 
-#showcase .doctorSubPage{
+#showcase .patientSubPage{
 	color: white;
 	min-height: 250px;
 	background: url("blackWallpaper.jpg")
@@ -117,13 +117,13 @@ a, a:visited, a:hover, a:active {
 	background-size: cover;
 }
 
-#showcase .doctorSubPage h2 {
+#showcase .patientSubPage h1 {
   padding-top: 130px;
   font-size: 55px;
   margin-bottom: 10px;
 }
 
-#showcase .doctorSubPage p2 {
+#showcase .patientSubPage p {
   font-size: 20px;
   padding-bottom:50px;
 }
@@ -153,13 +153,13 @@ a, a:visited, a:hover, a:active {
 	background-size: cover;
 	
 }
-#showcase h2 {
+#showcase h1 {
   padding-top: 300px;
   font-size: 55px;
   margin-bottom: 10px;
 }
 
-#showcase p2 {
+#showcase p {
   font-size: 20px;
   padding-bottom:100px;
 }

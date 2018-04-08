@@ -25,8 +25,8 @@
 
     <section id="showcase">
       <div class="scheduling">
-        <h2>Welcome Insert Practitioner Name!</h2>
-        <p2>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis </p2>
+        <h1>Welcome Insert Practitioner Name!</h1>
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis </p>
       </div>
     </section>
   </div>
@@ -62,12 +62,12 @@
   
   <section id"content">
     <div class="container contentHome">
-      <p2>
+      <p>
         mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
-      </p2>
-      <p2>
+      </p>
+      <p>
         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
-      </p2>
+      </p>
 
     </div>
   </section>

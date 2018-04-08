@@ -25,19 +25,19 @@
     </header>
 
     <section id="showcase">
-      <div class="doctorSubPage">
-        <h2>Your Appointments</h2>
+      <div class="patientSubPage">
+        <h1>Your Appointments</h1>
       </div>
     </section>
   </div>
 
   <section id"content">
     <div class="container contentSubPage">
-      <p2>
+      <p>
 	  Appointment Info! <br>
 	  <a href="MedPASS_DoctorAppointments.php"><input type="submit" value="Cancel Appointment"></a> <br>
 	  <a href="MedPASS_BookAppointment.php"><input type="submit" value="View Appointments"></a>
-      </p2>
+      </p>
 
     </div>
   </section>
