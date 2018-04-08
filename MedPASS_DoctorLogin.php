@@ -33,7 +33,7 @@
 		<label for="lname">Password:</label>
 		<input type="password" id="lname" name="password" placeholder="Your password..">
 		<br>
-		<a href="MedPASS_Home.php"><input type="submit" value="Submit"></a>
+		<a href="MedPASS_DoctorHome.php"><input type="submit" value="Submit"></a>
 	  </div>
     </section>
   </div>

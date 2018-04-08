@@ -17,7 +17,7 @@
         </div>
         <div class="menu">
           <ul>
-            <li><a href="MedPASS_Home.php">Home</a></li>
+            <li><a href="MedPASS_PatientHome.php">Home</a></li>
 			<li><a href="MedPASS_Welcome.php">Logout</a></li>
           </ul>
         </div>
@@ -25,7 +25,7 @@
     </header>
 
     <section id="showcase">
-      <div class="patientSubPage">
+      <div class="doctorSubPage">
         <h1>Your Appointments</h1>
       </div>
     </section>
