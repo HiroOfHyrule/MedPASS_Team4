@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>MedPASS</title>
-  <link rel="stylesheet" href="HomeFormat.css">
+  <link rel="stylesheet" href="AdminFormat.css">
 </head>
 
 <body>
@@ -33,7 +33,7 @@
 		<label for="lname">Password:</label>
 		<input type="password" id="lname" name="password" placeholder="Your password..">
 		<br>
-		<a href="MedPASS_Home.php"><input type="submit" value="Submit"></a>
+		<a href="MedPASS_AdminHome.php"><input type="submit" value="Submit"></a>
 	  </div>
     </section>
   </div>
