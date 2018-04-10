@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>MedPASS</title>
-  <link rel="stylesheet" href="DoctorHomeFormat.css">
+  <link rel="stylesheet" href="DoctorFormat.css">
 </head>
 
 <body>

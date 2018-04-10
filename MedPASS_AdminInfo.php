@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>MedPASS</title>
-  <link rel="stylesheet" href="DoctorFormat.css">
+  <link rel="stylesheet" href="AdminFormat.css">
 </head>
 
 <body>
@@ -17,7 +17,7 @@
         </div>
         <div class="menu">
           <ul>
-            <li><a href="MedPASS_DoctorHome.php">Home</a></li>
+            <li><a href="MedPASS_AdminHome.php">Home</a></li>
 			<li><a href="MedPASS_Welcome.php">Logout</a></li>
           </ul>
         </div>
@@ -34,10 +34,14 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
-		<label for="PID">Enter Patient ID:</label>
-		<input type="text" id="PID" name="patientid" placeholder="Patient ID..">
-		<br>
-	  <a href="MedPASS_DoctorManagePatientInfo.php"><input type="submit" value="View Patient Information"></a>
+      Employee ID: <br>
+	  First Name: <br>
+	  Last Name: <br>
+	  Address: <br>
+	  Phone Number: <br>
+	  Email: <br>
+      Position: <br>
+	  <a href="MedPASS_AdminInfoEdit.php"><input type="submit" value="Edit Info"></a>
       </p>
 
     </div>

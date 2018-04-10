@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>MedPASS</title>
-  <link rel="stylesheet" href="DoctorFormat.css">
+  <link rel="stylesheet" href="AdminFormat.css">
 </head>
 
 <body>
@@ -17,8 +17,8 @@
         </div>
         <div class="menu">
           <ul>
-            <li><a href="MedPASS_DoctorHome.php">Home</a></li>
-			<li><a href="MedPASS_DoctorInfo.php">Back</a></li>
+            <li><a href="MedPASS_AdminHome.php">Home</a></li>
+			<li><a href="MedPASS_AdminManageEmpInfo.php">Back</a></li>
 			<li><a href="MedPASS_Welcome.php">Logout</a></li>
           </ul>
         </div>
@@ -35,27 +35,28 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
-		Employee ID: 
-		<br><br>
+		<label for="empID">Employee ID:</label>
+		<input type="text" id="empID" name="employeeID" placeholder="...">
+		<br>
         <label for="fname">First Name:</label>
-		<input type="text" id="fname" name="firstname" placeholder="Your first name..">
+		<input type="text" id="fname" name="firstname" placeholder="...">
 		<br>
 		<label for="lname">Last Name:</label>
-		<input type="text" id="lname" name="lastname" placeholder="Your last name..">
+		<input type="text" id="lname" name="lastname" placeholder="...">
 		<br>
-		<label for="addre">Address:</label>
-		<input type="text" id="addr" name="address" placeholder="Your address..">
+		<label for="addr">Address:</label>
+		<input type="text" id="addr" name="address" placeholder="...">
 		<br>
 		<label for="phonum">Phone Number:</label>
-		<input type="text" id="phonum" name="phonenumber" placeholder="Your phone number..">
+		<input type="text" id="phonum" name="phonenumber" placeholder="...">
 		<br>
 		<label for="mail">Email:</label>
-		<input type="text" id="mail" name="email" placeholder="Your email..">
+		<input type="text" id="mail" name="email" placeholder="...">
 		<br>
-		<label for="specialization">Specialization:</label>
-		<input type="text" id="specialization" name="specialization" placeholder="Your specialization..">
+		<label for="specialization">Specialization or Position:</label>
+		<input type="text" id="specialization" name="specialization" placeholder="...">
 		<br>
-	  <a href="MedPASS_DoctorInfo.php"><input type="submit" value="Submit Edit Info"></a>
+	  <a href="MedPASS_AdminManageEmpInfo.php"><input type="submit" value="Submit Edit Info"></a>
       </p>
 
     </div>
