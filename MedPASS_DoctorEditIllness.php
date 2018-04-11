@@ -17,27 +17,31 @@
         </div>
         <div class="menu">
           <ul>
-            <li><a href="MedPASS_Welcome.php">Back</a></li>
+            <li><a href="MedPASS_DoctorHome.php">Home</a></li>
+			<li><a href="MedPASS_Welcome.php">Logout</a></li>
           </ul>
         </div>
       </nav>
     </header>
 
     <section id="showcase">
-      <div class="loginScreen">
-        <h1>Welcome to the Medical Practitioner Login!</h1>
-        <p>Please enter your username and password below. </p>
-		<label for="fname">Username:</label>
-		<input type="text" id="user" name="username" placeholder="Your username..">
-		<br>
-		<label for="lname">Password:</label>
-		<input type="password" id="lname" name="password" placeholder="Your password..">
-		<br>
-		<a href="MedPASS_DoctorHome.php"><input type="submit" value="Submit"></a>
-	  </div>
+      <div class="patientSubPage">
+        <h1>Your Practitioner Information</h1>
+      </div>
     </section>
   </div>
-  
+
+  <section id"content">
+    <div class="container contentSubPage">
+      <p>
+		<label for="ill">Illness:</label>
+		<input type="text" id="ill" name="illness" placeholder="Illness..">
+		<br>
+	  <a href="MedPASS_DoctorManagePatientInfo.php"><input type="submit" value="Submit Illness"></a>
+      </p>
+
+    </div>
+  </section>
   
   <footer>
     <p>The MedPASS Organization, Copyright &copy; 2018</p>

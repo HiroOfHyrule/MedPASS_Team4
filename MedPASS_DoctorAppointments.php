@@ -83,7 +83,7 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>MedPASS</title>
-  <link rel="stylesheet" href="HomeFormat.css">
+  <link rel="stylesheet" href="DoctorFormat.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script type="text/javascript">
 			<!--
@@ -128,7 +128,7 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
         </div>
         <div class="menu">
           <ul>
-            <li><a href="MedPASS_PatientHome.php">Home</a></li>
+            <li><a href="MedPASS_DoctorHome.php">Home</a></li>
 			<li><a href="MedPASS_Welcome.php">Logout</a></li>
           </ul>
         </div>
@@ -191,7 +191,7 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
 			<input type="text" id="addr" name="drname" placeholder="Your doctor's name..">
 			<br>
 			</form>
-	  <a href="MedPASS_PatientAppointments.php"><input type="submit" value="Book This Appointment"></a>
+	  <a href="MedPASS_DoctorAppointments.php"><input type="submit" value="Book This Appointment"></a>
      
 	</div>
 	

@@ -22,7 +22,8 @@ header {
   width: 100%;
   min-height: 80px;
   background-size: cover;
-  background-color:#4fb3bf;
+  background-color:#54ad7c;
+  z-index: 2;
 }
 .popup-position{
 	display:none;
@@ -57,7 +58,7 @@ header {
 .contentSubPage {
   width: 90%;
   margin:4em auto;
-  font-size: 20px;
+  font-size: 100%;
   line-height: 30px;
   text-align: justify;
   padding-top: 0;
@@ -111,12 +112,12 @@ nav ul li a {
 
 header .highlight,
 header .current a {
-  color: #b4ffff;
+  color: #6be0a0;
   font-weight: bold;
 }
 
 header a:hover {
-  color:#b4ffff;
+  color:#6be0a0;
   font-weight:bold;
   text-decoration:underline;
 }
@@ -170,7 +171,6 @@ a, a:visited, a:hover, a:active {
 	min-height: 1000px;
 	background: url("welcomePage.png")
     no-repeat;
-	background-position:center;
 	background-size: cover;
 	
 }
@@ -207,12 +207,12 @@ a, a:visited, a:hover, a:active {
 
 #boxes .box:hover {
   font-weight:bold;
-  box-shadow: 0px 8px rgba(0, 131, 143, 0.9);
+  box-shadow: 0px 8px rgba(84, 173, 124, 0.9);
 }
 
 footer {
   color:#ffffff;
-  background-color:#4fb3bf;
+  background-color:#54ad7c;
   text-align:center;
   min-height: 10px;
   padding: 10px;
@@ -232,7 +232,7 @@ input[type=text], [type=password],[type=date],select {
 
 input[type=submit] {
     width: 20%;
-    background-color: #4fb3bf;
+    background-color: #54ad7c;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -243,7 +243,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #54ad7c;
 }
 
 

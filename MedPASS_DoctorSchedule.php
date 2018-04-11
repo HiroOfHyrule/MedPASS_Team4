@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>MedPASS</title>
-  <link rel="stylesheet" href="HomeFormat.css">
+  <link rel="stylesheet" href="DoctorFormat.css">
 </head>
 
 <body>
@@ -17,7 +17,7 @@
         </div>
         <div class="menu">
           <ul>
-            <li><a href="MedPASS_PatientHome.php">Home</a></li>
+            <li><a href="MedPASS_DoctorHome.php">Home</a></li>
 			<li><a href="MedPASS_Welcome.php">Logout</a></li>
           </ul>
         </div>
@@ -26,7 +26,7 @@
 
     <section id="showcase">
       <div class="patientSubPage">
-        <h1>Your Rented Equipment</h1>
+        <h1>Your Appointments</h1>
       </div>
     </section>
   </div>
@@ -34,8 +34,10 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
-	  Equipment Rental Details! <br>
-	  <a href="MedPASS_PatientEquip.php"><input type="submit" value="View Rental Equipment"></a>
+	  Appointment Info! <br>
+	  <a href="MedPASS_DoctorChangeAvailability.php"><input type="submit" value="Change Availability"></a> <br>
+	  <a href="MedPASS_DoctorAppointments.php"><input type="submit" value="Cancel Appointment"></a> <br>
+	  <a href="MedPASS_BookAppointment.php"><input type="submit" value="View Appointments"></a>
       </p>
 
     </div>

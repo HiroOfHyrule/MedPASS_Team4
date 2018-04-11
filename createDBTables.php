@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "admins";
-$password = "Cpsc471!2018";
+$username = "root";
+$password = "usbw";
 $dbname = "medpass";
 
 // Create connection

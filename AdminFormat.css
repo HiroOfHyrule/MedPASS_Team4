@@ -22,36 +22,16 @@ header {
   width: 100%;
   min-height: 80px;
   background-size: cover;
-  background-color:#4fb3bf;
-}
-.popup-position{
-	display:none;
-	position:fixed;
-	top:70px;
-	left:0;
-	background-color:rgba(0,0,0,0.7);
-	width:100%;
-	height:100%;
+  background-color:#a53051;
 }
 
-#popup-wrapper{
-	width:500px;
-	margin:70px auto;
-	text-align:left;
-}
-
-#popup-container {
-	background-color:#FFF;
-	padding:20px;
-	border-radius:4px;
-}
 .contentHome {
   width: 90%;
   margin:4em auto;
   font-size: 20px;
   line-height: 30px;
   text-align: justify;
-  padding-top: 200px;
+  padding-top: 300px;
 }
 
 .contentSubPage {
@@ -111,12 +91,12 @@ nav ul li a {
 
 header .highlight,
 header .current a {
-  color: #b4ffff;
+  color: #f74779;
   font-weight: bold;
 }
 
 header a:hover {
-  color:#b4ffff;
+  color:#f74779;
   font-weight:bold;
   text-decoration:underline;
 }
@@ -170,7 +150,6 @@ a, a:visited, a:hover, a:active {
 	min-height: 1000px;
 	background: url("welcomePage.png")
     no-repeat;
-	background-position:center;
 	background-size: cover;
 	
 }
@@ -186,33 +165,38 @@ a, a:visited, a:hover, a:active {
 }
 
 #boxes {
-  margin-top:20px;
+  padding-top: 40px;
+  padding-bottom:40px;
 }
 
-#boxes .box {
+#boxes2 {
+  margin-top: 200px;
+  margin-bottom:40px;
+}
+
+#boxes .box, #boxes2 .box  {
   float:left;
   text-align:center;
-  width: 25%;
+  width: 33%;
   padding:0px;
 }
 
-#boxes .current {
+#boxes .current, #boxes2 .current {
   box-shadow: 0px 8px rgba(0, 131, 143, 0.9);
 }
 
-#boxes .box img {
+#boxes .box img, #boxes2 .box img {
   width:120px;
-  margin-bottom:20px;
 }
 
-#boxes .box:hover {
+#boxes .box:hover, #boxes2 .box:hover {
   font-weight:bold;
-  box-shadow: 0px 8px rgba(0, 131, 143, 0.9);
+  box-shadow: 0px 8px rgba(165, 48, 81, 0.9);
 }
 
 footer {
   color:#ffffff;
-  background-color:#4fb3bf;
+  background-color:#a53051;
   text-align:center;
   min-height: 10px;
   padding: 10px;
@@ -232,7 +216,7 @@ input[type=text], [type=password],[type=date],select {
 
 input[type=submit] {
     width: 20%;
-    background-color: #4fb3bf;
+    background-color: #a53051;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -243,36 +227,10 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #a53051;
 }
 
 
-th {
-	height: 30px;
-	text-align:center;
-	font-weight:700;
-	background:#e0e0e0;
-}
-
-td {
-	height:100px;
-}
-
-td:hover {
-	background-color: #d3d3d3;
-	cursor: pointer;
-}
-
-.today {
-	background:#4fb3bf;
-}
-
-th:nth-of-type(7),td:nth-of-type(7) {
-	color:blue;
-}
-th:nth-of-type(1),td:nth-of-type(1) {
-	color:red;
-}
 
 
 
