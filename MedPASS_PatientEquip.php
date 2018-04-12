@@ -1,3 +1,14 @@
+<?php
+
+// Initialize the session
+session_start();
+ 
+// If session variable is not set it will redirect to login page
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  header("location: MedPASS_Welcome.php");
+  exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -18,7 +29,7 @@
         <div class="menu">
           <ul>
             <li><a href="MedPASS_PatientHome.php">Home</a></li>
-			<li><a href="MedPASS_Welcome.php">Logout</a></li>
+			<li><a href="logout.php">Logout</a></li>
           </ul>
         </div>
       </nav>
@@ -34,9 +45,33 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
-      <form  method="POST" action="MedPASS_PatientEquip.php"> <!DATABASE TODO>
+     
 	  Equipment Rentals: <br>
-      </form>
+      <?php
+//code for displaying rental equip
+    include 'config.php';
+    $sql = "SELECT r.Start_Date, r.Return_Date, e.Equipment_Type, e.Cost_Per_Month
+                FROM patient AS p, assistance_equipment AS e, rents AS r
+                WHERE p.Patient_ID = '".$_SESSION['id']."' AND p.Patient_ID = r.PID AND
+                r.Equip_ID = e.Equip_ID";
+
+    $result = mysqli_query($link, $sql);
+    if(!$result) {
+    echo "Error: " . $sql . "<br>" . mysqli_error($link);
+    }
+
+    while ($row = mysqli_fetch_array($result)) {
+    $start = $row['Start_Date'];
+    $end = $row['Return_Date'];
+    $eType = $row['Equipment_Type'];
+    $cost = $row['Cost_Per_Month'];
+    echo $eType."   ".$start."    ".$end."    ".$cost;
+    echo"<br>";
+    } 
+    mysqli_close($link);
+    
+?>
+      
       </p>
 
     </div>

@@ -1,3 +1,8 @@
+<?php
+session_start();
+$_SESSION['role'] = "Admin";
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -27,14 +32,15 @@
       <div class="loginScreen">
         <h1>Welcome to the Admin Login!</h1>
         <p>Please enter your username and password below. </p>
-        <form  method="POST" action="MedPASS_AdminHome.php"> <!DATABASE TODO>
+        <form  method="POST" action="login2.php">
+       
 		<label for="fname">Username:</label>
 		<input type="text" id="user" name="username" placeholder="Your username..">
 		<br>
 		<label for="lname">Password:</label>
 		<input type="password" id="lname" name="password" placeholder="Your password..">
 		<br>
-		<a href="MedPASS_AdminHome.php"><input type="submit" value="Submit"></a>
+		<input type="submit" name="submit" value="Submit"></a>
         </form>
 	  </div>
     </section>

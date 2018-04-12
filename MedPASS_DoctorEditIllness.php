@@ -1,3 +1,41 @@
+<?php
+// Initialize the session
+session_start();
+ 
+// If session variable is not set it will redirect to login page
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  header("location: MedPASS_Welcome.php");
+  exit;
+}  
+// for deleting an illness  
+if(isset($_POST['delete'])) {
+	$illness = $_POST['illnessD'];
+	$quert = "DELETE FROM illness WHERE Illness_Name ='$illness'";
+	if (mysqli_query($link, $query)) {
+	} else {
+		echo "Error: " . $query . "<br>" . mysqli_error($link);
+	}
+		mysqli_close($link);
+}
+
+if(isset($_POST['edit'])) {
+	$illness = $_POST['illness'];
+	$symptoms = $_POST['symptoms'];
+	$causes = $_POST['causes'];
+	
+	$query = "UPDATE illness SET Symptom ='$symptoms', Cause='$causes' WHERE Illness_Name='$illness'";
+	
+  if (mysqli_query($link, $query)) {
+} else {
+    echo "Error: " . $query . "<br>" . mysqli_error($link);
+}
+	mysqli_close($link);
+	header("Location: MedPASS_DoctorViewPatientInfo.php");
+exit();
+}
+	
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -19,7 +57,7 @@
           <ul>
             <li><a href="MedPASS_DoctorHome.php">Home</a></li>
 			<li><a href="MedPASS_DoctorViewPatientInfo.php">Back</a></li>
-			<li><a href="MedPASS_Welcome.php">Logout</a></li>
+			<li><a href="logout.php">Logout</a></li>
           </ul>
         </div>
       </nav>
@@ -35,27 +73,27 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
-      <form  method="POST" action="MedPASS_DoctorViewPatientInfo.php"> <!DATABASE TODO>
+      <form  method="POST" action=""> <!DATABASE TODO>
 		<label for="ill">Illness Name:</label><br>
 		<input type="text" id="ill" name="illness" placeholder="Illness...">
 		<br>
 		<label for="ill">Causes:</label><br>
-		<textarea name="textarea" maxlength = "255" cols="85" rows="3" id="cause" name="causes" placeholder="Causes..."></textarea>
+		<textarea maxlength = "255" cols="85" rows="3" id="cause" name="causes" placeholder="Causes..."></textarea>
 		<br>
 		<label for="ill">Symptoms:</label><br>
-		<textarea name="textarea" maxlength = "255" cols="85" rows="3" id="sympt" name="symptoms" placeholder="Symptoms..."></textarea>
+		<textarea maxlength = "255" cols="85" rows="3" id="sympt" name="symptoms" placeholder="Symptoms..."></textarea>
 		<br>
-	  <a href="MedPASS_DoctorViewPatientInfo.php"><input type="submit" value="Edit Illness Info"></a>
+	  <input type="submit" name="edit" value="Edit Illness Info"></a>
       </form>
 	  </p>
 	  <br>
 	  <br>
 	  <p>
-	  <form  method="POST" action="MedPASS_DoctorViewPatientInfo.php"> <!DATABASE TODO>
+	  <form  method="POST" action=""> <!DATABASE TODO>
 	  <label for="ill">Illness Name:</label><br>
-		<input type="text" id="ill" name="illness" placeholder="Illness..">
+		<input type="text" id="ill" name="illnessD" placeholder="Illness..">
 		<br>
-	  <a href="MedPASS_DoctorViewPatientInfo.php"><input type="submit" value="Delete Illness"></a><br>
+	  <input type="submit" name="delete" value="Delete Illness"></a><br>
 	  </form>
       </p>
 

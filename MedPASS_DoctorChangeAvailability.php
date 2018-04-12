@@ -1,3 +1,13 @@
+<?php
+// Initialize the session
+session_start();
+ 
+// If session variable is not set it will redirect to login page
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  header("location: MedPASS_Welcome.php");
+  exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -19,7 +29,7 @@
         <div class="menu">
           <ul>
             <li><a href="MedPASS_DoctorHome.php">Home</a></li>
-			<li><a href="MedPASS_Welcome.php">Logout</a></li>
+			<li><a href="logout.php">Logout</a></li>
           </ul>
         </div>
       </nav>
@@ -43,7 +53,7 @@
 	 <label class="containerAvail"><input type="checkbox" id="Fri0800"><span class="checkboxAvailFri"></span></label>
 	 <br>
 	 <label class="containerAvail"><input type="checkbox" id="Mon0830"><span class="checkboxAvailMon"></span></label>
-	 <label class="containerAvail"><input type="checkbox" id="Tue0830" id="Mon0800"><span class="checkboxAvailTue"></span></label>
+	 <label class="containerAvail"><input type="checkbox" id="Tue0830"><span class="checkboxAvailTue"></span></label>
 	 <label class="containerAvail"><input type="checkbox" id="Wed0830"><span class="checkboxAvailWed"></span></label>
 	 <label class="containerAvail"><input type="checkbox" id="Thu0830"><span class="checkboxAvailThu"></span></label>
 	 <label class="containerAvail"><input type="checkbox" id="Fri0830"><span class="checkboxAvailFri"></span></label>
@@ -172,7 +182,7 @@
 	  
       
     </div>
-	<a href="MedPASS_DoctorHome.php"><input type="submit" value="Submit New Availability"></a>
+	<input type="submit" name="submit" value="Submit New Availability"></a>
     </form>
   </section>
   

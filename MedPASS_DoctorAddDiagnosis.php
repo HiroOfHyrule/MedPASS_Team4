@@ -1,3 +1,13 @@
+<?php
+// Initialize the session
+session_start();
+ 
+// If session variable is not set it will redirect to login page
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  header("location: MedPASS_Welcome.php");
+  exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -19,7 +29,7 @@
           <ul>
             <li><a href="MedPASS_DoctorHome.php">Home</a></li>
 			<li><a href="MedPASS_DoctorManagePatientInfo.php">Back</a></li>
-			<li><a href="MedPASS_Welcome.php">Logout</a></li>
+			<li><a href="logout.php">Logout</a></li>
           </ul>
         </div>
       </nav>
@@ -35,12 +45,12 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
-      <form  method="POST" action="MedPASS_DoctorManagePatientInfo.php"> <!DATABASE TODO>
+      <form  method="POST" action="addDiag.php"> 
 		<label for="diag">Illness Name:</label><br>
 		<input type="text" id="diag" name="diagnosis" placeholder="Illness Name..">
 		<br>
 
-	  <a href="MedPASS_DoctorManagePatientInfo.php"><input type="submit" value="Submit Diagnosis"></a>
+	  <input type="submit" name="submit" value="Submit Diagnosis"></a>
       </form>
       </p>
 

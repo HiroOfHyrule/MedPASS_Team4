@@ -1,4 +1,15 @@
 <?php
+
+// Initialize the session
+session_start();
+ 
+// If session variable is not set it will redirect to login page
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  header("location: MedPASS_Welcome.php");
+  exit;
+}
+?>
+<?php
 // Set timezone
 date_default_timezone_set('Canada/Mountain');
  
@@ -129,7 +140,7 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
         <div class="menu">
           <ul>
             <li><a href="MedPASS_PatientHome.php">Home</a></li>
-			<li><a href="MedPASS_Welcome.php">Logout</a></li>
+			<li><a href="logout.php">Logout</a></li>
           </ul>
         </div>
       </nav>
@@ -174,13 +185,8 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
     </div>
 	
 	<div id="book-appt" class="container contentSubPage" style="display: none;">
-		<form>
-			<label for="fname">First Name:</label>
-			<input type="text" id="fname" name="firstname" placeholder="Your first name..">
-			<br>
-			<label for="lname">Last Name:</label>
-			<input type="text" id="lname" name="lastname" placeholder="Your last name..">
-			<br>
+		<form method="POST" action"">
+			
 			<label for="appt-date">Date:</label>
 			<input type="date" id="appt-date" name="appointmentdate">
 			<br>
@@ -188,10 +194,24 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
 			<input type="time" id="appointmenttime" name="appointmenttime" placeholder="Enter time..">
 			<br>
 			<label for="drname">Doctor's name:</label>
-			<input type="text" id="addr" name="drname" placeholder="Your doctor's name..">
+            <?php
+            include 'config.php';
+            $query = "SELECT LName, Employee_ID FROM medical_practitioner";
+            $result = mysqli_query($link,$query);
+            if(!$result) {
+                echo "Error: " . $query . "<br>" . mysqli_error($link);
+            }
+            echo "<select name=\"drname\">";
+            
+            while($row = mysqli_fetch_array($result)) {
+                echo "<option value='".$row['Employee_ID']."'>Dr ".$row['LName']."</option>";
+            }
+            echo "</select>";
+            mysqli_close($link);
+            ?>
 			<br>
 			</form>
-	  <a href="MedPASS_PatientAppointments.php"><input type="submit" value="Book This Appointment"></a>
+	  <input type="submit" name="submit" value="Book This Appointment"></a>
      
 	</div>
 	

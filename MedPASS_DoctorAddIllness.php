@@ -1,3 +1,13 @@
+<?php
+// Initialize the session
+session_start();
+ 
+// If session variable is not set it will redirect to login page
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  header("location: MedPASS_Welcome.php");
+  exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -19,7 +29,7 @@
           <ul>
             <li><a href="MedPASS_DoctorHome.php">Home</a></li>
 			<li><a href="MedPASS_DoctorViewPatientInfo.php">Back</a></li>
-			<li><a href="MedPASS_Welcome.php">Logout</a></li>
+			<li><a href="logout.php">Logout</a></li>
           </ul>
         </div>
       </nav>
@@ -35,17 +45,17 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
-      <form  method="POST" action="MedPASS_DoctorViewPatientInfo.php"> <!DATABASE TODO>
+      <form  method="POST" action="addIllness.php"> 
 		<label for="ill">Illness Name:</label><br>
 		<input type="text" id="ill" name="illness" placeholder="Illness...">
 		<br>
-		<label for="ill">Causes:</label><br>
-		<textarea name="textarea" maxlength = "255" cols="85" rows="3" id="cause" name="causes" placeholder="Causes..."></textarea>
+		<label for="cause">Causes:</label><br>
+		<textarea maxlength = "255" cols="85" rows="3" id="cause" name="causes" placeholder="Causes..."></textarea>
 		<br>
-		<label for="ill">Symptoms:</label><br>
-		<textarea name="textarea" maxlength = "255" cols="85" rows="3" id="sympt" name="symptoms" placeholder="Symptoms..."></textarea>
+		<label for="sympt">Symptoms:</label><br>
+		<textarea maxlength = "255" cols="85" rows="3" id="sympt" name="symptoms" placeholder="Symptoms..."></textarea>
 		<br>
-	  <a href="MedPASS_DoctorViewPatientInfo.php"><input type="submit" value="Add New Illness"></a>
+	  <input type="submit" name="submit" value="Add New Illness"></a>
       </form>
 	</p>
     </div>

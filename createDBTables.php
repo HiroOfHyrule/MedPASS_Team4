@@ -20,6 +20,8 @@ LName VARCHAR(30) NOT NULL,
 Email VARCHAR(50),
 Phone INT(10) UNSIGNED NOT NULL,
 Admin_Position VARCHAR (50) NOT NULL,
+Username VARCHAR(50) NOT NULL,
+Password VARCHAR(50) NOT NULL,
 PRIMARY KEY(Employee_ID)
 )ENGINE=InnoDB";
 
@@ -39,6 +41,8 @@ Sex VARCHAR(10) NOT NULL,
 Phone INT(10) UNSIGNED NOT NULL,
 Address VARCHAR(50),
 Email VARCHAR(50),
+Username VARCHAR(50) NOT NULL,
+Password VARCHAR(50) NOT NULL,
 PRIMARY KEY(Patient_ID))ENGINE=InnoDB";
 
 if (mysqli_query($conn, $patient)) {
@@ -57,6 +61,8 @@ Phone INT(10) UNSIGNED NOT NULL,
 Address VARCHAR(50),
 Email VARCHAR(50),
 Reg_No INT(255) UNSIGNED UNIQUE NOT NULL,
+Username VARCHAR(50) NOT NULL,
+Password VARCHAR(50) NOT NULL,
 PRIMARY KEY(Employee_ID))ENGINE=InnoDB";
 
 if (mysqli_query($conn, $medP)) {

@@ -1,3 +1,11 @@
+<?php
+session_start();
+include 'viewPatient.php';
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  header("location: MedPASS_Welcome.php");
+  exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -18,7 +26,7 @@
         <div class="menu">
           <ul>
             <li><a href="MedPASS_PatientHome.php">Home</a></li>
-			<li><a href="MedPASS_Welcome.php">Logout</a></li>
+			<li><a href="logout.php">Logout</a></li>
           </ul>
         </div>
       </nav>
@@ -37,13 +45,13 @@
       
       <!DATABASE TODO>
       
-	  First Name: <br>
-	  Last Name: <br>
-	  Birthday: <br>
-	  Gender: <br>
-	  Address: <br>
-	  Phone Number: <br>
-	  Email: <br>
+	  First Name: <?php echo $firstname; ?><br>
+	  Last Name: <?php echo $lastname; ?><br>
+	  Birthday: <?php echo $dob; ?><br>
+	  Gender: <?php echo $sex; ?><br>
+	  Address: <?php echo $address; ?><br>
+	  Phone Number: <?php echo $phone; ?><br>
+	  Email: <?php echo $email; ?><br>
 	  <a href="MedPASS_PatientInfoEdit.php"><input type="submit" value="Edit Info"></a>
       </p>
 

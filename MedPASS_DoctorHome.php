@@ -1,3 +1,29 @@
+<?php
+
+// Initialize the session
+session_start();
+ 
+// If session variable is not set it will redirect to login page
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  header("location: MedPASS_Welcome.php");
+  exit;
+}
+?>
+<?php
+    include 'config.php';
+    $query = "SELECT FName, LName FROM medical_practitioner
+                WHERE Employee_ID='".$_SESSION['id']."'";
+    $result = mysqli_query($link,$query);
+    if(!$result) {
+        echo "Error: " . $query . "<br>" . mysqli_error($link);
+    }
+    $row = mysqli_fetch_array($result);
+    $fname = $row['FName'];
+    $lname = $row['LName'];
+    
+    
+    mysqli_close($link);
+?>
 <!DOCTYPE html>
 <html>
 
@@ -17,7 +43,7 @@
         </div>
         <div class="menu">
           <ul>
-            <li><a href="MedPASS_Welcome.php">Logout</a></li>
+            <li><a href="logout.php">Logout</a></li>
           </ul>
         </div>
       </nav>
@@ -25,7 +51,7 @@
 
     <section id="showcase">
       <div class="scheduling">
-        <h1>Welcome Insert Practitioner Name!</h1> <!DATABASE TODO>
+        <h1>Welcome <?php echo $fname." ".$lname; ?>!</h1>
       </div>
     </section>
   </div>

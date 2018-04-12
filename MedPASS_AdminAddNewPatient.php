@@ -1,3 +1,27 @@
+<?php
+session_start();
+include 'addUser.php';
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  header("location: MedPASS_Welcome.php");
+  exit;
+}
+?>
+<?php
+    if (isset($_POST['submit'])) {
+        $fname = $_POST['firstname'];
+        $lname = $_POST['lastname'];
+        $dob = $_POST['dob'];
+        $sex = $_POST['sex'];
+        $phone = $_POST['phonenumber'];
+        $address = $_POST['address'];
+        $email = $_POST['email'];
+        $username = $_POST['username'];
+        $passhash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        addPatient($fname,$lname,$dob,$sex,$phone,$address,$email,$username,$passhash);
+        header('Location: MedPASS_AdminViewPatientInfo.php');
+        exit();
+    }
+?>
 <!DOCTYPE html>
 <html>
 
@@ -35,10 +59,8 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
-      <form  method="POST" action="MedPASS_AdminViewPatientInfo.php"> <!DATABASE TODO>
-		<label for="PID">Patient ID:</label>
-		<input type="text" id="PID" name="patientID" placeholder="...">
-		<br>
+      <form  method="POST" action=""> 
+		
         <label for="fname">First Name:</label>
 		<input type="text" id="fname" name="firstname" placeholder="...">
 		<br>
@@ -54,7 +76,13 @@
 		<label for="mail">Email:</label>
 		<input type="text" id="mail" name="email" placeholder="...">
 		<br>
-	  <a href="MedPASS_AdminViewPatientInfo.php"><input type="submit" value="Submit Add Patient"></a>
+        <label for="username">Username:</label>
+		<input type="text" id="username" name="username" placeholder="Username">
+		<br>
+        <label for="password">Password:</label>
+		<input type="text" id="password" name="password" placeholder="Password">
+		<br>
+	  <input type="submit" name="submit" value="Submit Add Patient">
       </form>
       </p>
 
