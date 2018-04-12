@@ -127,14 +127,12 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
 					window.scrollTo(0,document.body.scrollHeight);
 				}
 				
-				function show_avail_dates() {
-					var e = document.getElementById("avail-dates");
-					e.style.display = "block";
+				function enableDateButton() {
+					document.getElementById("select-date").disabled = true;
 				}
 				
-				function show_avail_times() {
-					var e = document.getElementById("avail-times");
-					e.style.display = "block";
+				function enableBookApptButton() {
+					document.getElementById("book-appt").disabled = true;
 				}
 			//-->
 		</script>
@@ -203,12 +201,12 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
 
 	<div class="container contentSubPage">
       <p>
-	  You have no upcoming appointments.<br>
-	  <a onclick="toggle_book_appt();"><input type="submit" value="Book an appointment"></a>
+	  You have no upcoming appointments. To book an appointment, please fill in the form below<br>
+	  
       </p>
     </div>
 	
-	<div id="book-appt" class="container contentSubPage" style="display: none;">
+	<div id="book-appt" class="container contentSubPage" >
 		<form method="POST" action="">
 			
 			<label for="drname">Doctor's name:</label>
@@ -228,21 +226,22 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
             mysqli_close($link);
             ?>
 			<br>
+			<a><input id="select-doctor" type="submit" name="submit" value="Select Doctor"></a>
 		</form>
 		<form method="POST" action="">
-			<div id="avail-dates" style="display: none;">
+			<div id="avail-dates" >
 				<label for="appt-date">Date:</label>
 				<input type="date" id="appt-date" name="appointmentdate">
 				<br>
-				<input type="submit" name="submit" value="Select This Date"></a>
+				<a><input id="select-date" type="submit" name="submit" value="Select This Date"></a>
 			</div>
 		</form>
 		<form method="POST" action="">
-			<div id="avail-times" style="display: none;">
+			<div id="avail-times" >
 				<label for="appointmenttime">Time:</label>
 				<input type="time" id="appointmenttime" name="appointmenttime" placeholder="Enter time..">
 				<br>
-				<input type="submit" name="submit" value="Book This Appointment"></a>
+				<a><input id="book-appt" type="submit" name="submit" value="Book This Appointment" style="width:300px;"></a>
 			</div>
 		</form>
 	  
