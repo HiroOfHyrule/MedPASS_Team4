@@ -37,13 +37,13 @@
       <p>
       <form  method="POST" action="MedPASS_DoctorViewPatientInfo.php"> <!DATABASE TODO>
 		<label for="ill">Illness Name:</label>
-		<input type="text" id="ill" name="illness" placeholder="Illness..">
+		<input type="text" id="ill" name="illness" placeholder="Illness...">
 		<br>
 		<label for="ill">Causes:</label>
-		<input type="text" id="ill" name="illness" placeholder="Illness..">
+		<input type="text" id="ill" name="illness" placeholder="Causes...">
 		<br>
 		<label for="ill">Symptoms:</label>
-		<input type="text" id="ill" name="illness" placeholder="Illness..">
+		<input type="text" id="ill" name="illness" placeholder="Symptoms...">
 		<br>
 	  <a href="MedPASS_DoctorViewPatientInfo.php"><input type="submit" value="Edit Illness Info"></a>
       </form>
