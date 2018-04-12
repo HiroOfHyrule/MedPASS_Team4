@@ -79,8 +79,8 @@ MedPASS_DoctorEditIllness.php
 - Add select illness name feature from the illness database
 - Output illness name and illness info to illness database, replacing info of previous entry of same name
 
-Pages not yet made:
+MedPASS_DoctorViewMedRec.php
+- Show medical record info on screen
 
-- We need to add a View Medical Record page to show all the medical record information that is tied to a person's medical history
-
-- We need to add a Edit Medical Record page to edit the medical record information that is tied to a person's medical history
+MedPASS_DoctorEditMedRec.php
+- Output new medical record info to medical record database
