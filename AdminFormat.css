@@ -46,7 +46,16 @@ header {
 #contentWelcome {
   padding-top: -200px;
 }
-
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.column {
+    float: left;
+    width: 50%;
+}
 .popup-position{
 	display:none;
 	position:fixed;
@@ -66,6 +75,10 @@ header {
   font-weight: bold;
   font-size: 24px;
 }
+
+.clear {
+      clear: both;
+    }
 
 nav {
   position: fixed;
@@ -216,6 +229,19 @@ a, a:visited, a:hover, a:active {
   box-shadow: 0px 8px rgba(165, 48, 81, 0.9);
 }
 
+#sideBar {
+    width: 40%;
+    float: right;
+    background: #d3d3d3;
+	margin-bottom:100px;
+	text-align:center;
+	padding-bottom:25px;
+}
+#mainContent {
+	width: 60%;
+    overflow: hidden;
+}
+
 footer {
   color:#ffffff;
   background-color:#a53051;
@@ -223,8 +249,6 @@ footer {
   min-height: 10px;
   padding: 10px;
 }
-
-
 
 input[type=text], [type=password],[type=date],select {
     width: 20%;
