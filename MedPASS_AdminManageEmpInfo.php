@@ -27,7 +27,7 @@
 
     <section id="showcase">
       <div class="patientSubPage">
-        <h1>Employee Information</h1>
+        <h1>Manage Employee Information</h1>
       </div>
     </section>
   </div>
