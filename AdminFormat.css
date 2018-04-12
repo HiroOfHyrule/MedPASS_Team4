@@ -27,11 +27,11 @@ header {
 
 .contentHome {
   width: 90%;
-  margin:4em auto;
+  margin: auto;
   font-size: 20px;
-  line-height: 30px;
+  line-height: 40px;
   text-align: justify;
-  padding-top: 300px;
+  padding-top: 255px;
 }
 
 .contentSubPage {
@@ -165,10 +165,11 @@ a, a:visited, a:hover, a:active {
 
 #showcase .scheduling{
 	color: white;
-	min-height: 680px;
+	min-height: 420px;
 	background: url("https://stylistagenda.com/media/1098/paper-appointment-book3-dark.jpg?anchor=center&mode=crop&width=1140&height=600&rnd=131450407640000000")
     no-repeat;
 	background-size: cover;
+	margin-bottom: 35px;
 }
 
 #showcase .loginScreen{
@@ -189,7 +190,7 @@ a, a:visited, a:hover, a:active {
 	
 }
 #showcase h1 {
-  padding-top: 300px;
+  padding-top: 220px;
   font-size: 55px;
   margin-bottom: 10px;
 }
