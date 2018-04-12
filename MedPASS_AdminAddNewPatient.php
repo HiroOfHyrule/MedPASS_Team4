@@ -27,7 +27,7 @@
 
     <section id="showcase">
       <div class="patientSubPage">
-        <h1>Edit Your Patient Information</h1>
+        <h1>Add New Patient Information</h1>
       </div>
     </section>
   </div>
