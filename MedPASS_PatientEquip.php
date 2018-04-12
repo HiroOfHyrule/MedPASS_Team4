@@ -47,6 +47,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
       <p>
      
 	  Equipment Rentals: <br>
+	  (Equipment Name, Rentral Start Date, Rentral End Date, Cost Per Month)<br>
       <?php
 //code for displaying rental equip
     include 'config.php';
@@ -65,7 +66,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
     $end = $row['Return_Date'];
     $eType = $row['Equipment_Type'];
     $cost = $row['Cost_Per_Month'];
-    echo $eType."   ".$start."    ".$end."    ".$cost;
+    echo $eType.",".$start.",".$end.",$".$cost;
     echo"<br>";
     } 
     mysqli_close($link);
