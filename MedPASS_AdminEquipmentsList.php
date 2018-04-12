@@ -8,15 +8,16 @@
   <link rel="stylesheet" href="AdminFormat.css">
   <script type="text/javascript">
 			<!--
-				function toggle_practitionerList() {
-					var x = document.getElementById("practitioner-list");
+				function toggle_add_equip() {
+					var x = document.getElementById("add-new-equip");
 					x.style.display = "block";
 				}
 				
-				// Function to be used for showing practitioner's sched based on ID
-				function toggle_schedule(practitionerID) {
-					window.scrollTo(0,document.body.scrollHeight);
+				function submit_add_equip() {
+					var e = document.getElementById("add-new-equip");
+					e.style.display = 'none';
 				}
+ 				
 			//-->
 		</script>
   
@@ -46,12 +47,28 @@
   </div>
   
  <section id="content">
-    <div class="container contentSubPage" align="center">
-      <p style="font-size:18px;">
-		Insert equipments list here  <!DATABASE TODO>
-      </p>
+    <div class="row contentSubPage">
+		<div id="mainContent" class="column" >
+			<h3>Rented Equipments</h3>
+				<!-- Insert list of rented equipments -->
+				<p>Insert equipments list here.</p>
+		</div>
+		<div id="sideBar" class="column" >
+			<h3>Available Equipments</h3>
+				<!-- Insert list of all avail equipments -->
+				<p>Insert equipments list here.</p>
+				<a onclick="toggle_add_equip()"><input type="submit" value="Add new equipment" style="width:50%;"></a>
+				<div id="add-new-equip" style="display:none;">
+					<form>
+						<label for="ename" style="font-size:15px;">Equipment Name:</label>
+						<input type="text" id="ename" name="equipName" placeholder="...">
+						
+					</form>
+					<a onclick="submit_add_equip()"><input type="submit" value="Submit"></a>
+				</div>
+		</div>
+		
 	</div>
-	
   </section>
   
   <footer>
