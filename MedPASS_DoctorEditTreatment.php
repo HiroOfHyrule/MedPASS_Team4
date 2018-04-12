@@ -18,6 +18,7 @@
         <div class="menu">
           <ul>
             <li><a href="MedPASS_DoctorHome.php">Home</a></li>
+			<li><a href="MedPASS_DoctorManagePatientInfo.php">Back</a></li>
 			<li><a href="MedPASS_Welcome.php">Logout</a></li>
           </ul>
         </div>
@@ -26,18 +27,30 @@
 
     <section id="showcase">
       <div class="patientSubPage">
-        <h1>Your Practitioner Information</h1>
+        <h1>Edit a Treatment</h1>
       </div>
     </section>
   </div>
 
   <section id"content">
     <div class="container contentSubPage">
-      <p>      
-		<label for="treat">Treatment:</label>
+      <p> 
+      <form  method="POST" action="MedPASS_DoctorManagePatientInfo.php"> <!DATABASE TODO>
+		<label for="treat">Treatment Name:</label>
 		<input type="text" id="treat" name="treatment" placeholder="Treatment..">
 		<br>
+		<label for="treatDesc">Treatment Description:</label><br>
+		<textarea name="textarea" maxlength = "255" cols="85" rows="3" id="treatDesc" name="treatmentDesc" placeholder="Treatment Description.."></textarea>
+		<br>
 	  <a href="MedPASS_DoctorManagePatientInfo.php"><input type="submit" value="Submit Treatment"></a>
+      </form>
+	  
+	  <form  method="POST" action="MedPASS_DoctorManagePatientInfo.php"> <!DATABASE TODO>
+	  <label for="ill">Treatment Name:</label>
+		<input type="text" id="ill" name="illness" placeholder="Illness..">
+		<br>
+	  <a href="MedPASS_DoctorManagePatientInfo.php"><input type="submit" value="Delete Treatment"></a><br>
+	  </form>
       </p>
 
     </div>

@@ -37,6 +37,7 @@
       <p>
 		Employee ID: 
 		<br><br>
+        <form  method="POST" action="MedPASS_DoctorInfo.php"> <!DATABASE TODO>
         <label for="fname">First Name:</label>
 		<input type="text" id="fname" name="firstname" placeholder="Your first name..">
 		<br>
@@ -56,6 +57,7 @@
 		<input type="text" id="specialization" name="specialization" placeholder="Your specialization..">
 		<br>
 	  <a href="MedPASS_DoctorInfo.php"><input type="submit" value="Submit Edit Info"></a>
+      </form>
       </p>
 
     </div>

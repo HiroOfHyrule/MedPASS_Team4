@@ -26,7 +26,7 @@
 
     <section id="showcase">
       <div class="patientSubPage">
-        <h1>Your Practitioner Information</h1>
+        <h1>Manage Patients and Illnesses</h1>
       </div>
     </section>
   </div>
@@ -34,12 +34,21 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
-		<label for="PID">Enter Patient ID:</label>
-		<input type="text" id="PID" name="patientid" placeholder="Patient ID..">
+      <form  method="POST" action="MedPASS_DoctorManagePatientInfo.php"> <!DATABASE TODO>
+		<label for="fname">Enter Patient's First Name:</label>
+		<input type="text" id="fname" name="firstname" placeholder="First Name..">
+		<br>
+        <label for="lname">Enter Patient's Last Name:</label>
+		<input type="text" id="lname" name="lastname" placeholder="Last Name..">
+		<br>
+        <label for="PID">Enter Patient ID:</label>
+		<input type="text" id="PID" name="patientID" placeholder="Patient ID..">
 		<br>
 	  <a href="MedPASS_DoctorManagePatientInfo.php"><input type="submit" value="View Patient Information"></a>
+      </form>
       </p>
-
+		<a href="MedPASS_DoctorAddIllness.php"><input type="submit" value="Add New Illness"></a>
+		<a href="MedPASS_DoctorEditIllness.php"><input type="submit" value="Edit/Delete Illness"></a> <br>
     </div>
   </section>
   

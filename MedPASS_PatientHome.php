@@ -25,8 +25,8 @@
 
     <section id="showcase">
       <div class="scheduling">
-        <h1>Welcome Insert Patient Name!</h1>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis </p>
+        <h1>Welcome Insert Patient Name!</h1> <!DATABASE TODO>
+        <p></p>
       </div>
     </section>
   </div>
@@ -55,7 +55,7 @@
 	<a href="MedPASS_PatientEquip.php">
       <div class="box">
         <img src="Equipment.png">
-        <h3>Manage Your<br /> Rental Equipment
+        <h3>View Your<br /> Rental Equipment
         </h3>
       </div>
 	</a>
@@ -64,13 +64,7 @@
   
   <section id"content">
     <div class="container contentHome">
-      <p>
-        mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
-      </p>
-
+	<p>Your next appointment is with (inster Doctor Name) at (insert Date).</p> <!DATABASE TODO>
     </div>
   </section>
   

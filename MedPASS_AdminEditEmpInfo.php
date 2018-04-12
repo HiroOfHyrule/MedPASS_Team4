@@ -35,6 +35,7 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
+      <form  method="POST" action="MedPASS_AdminManageEmpInfo.php"> <!DATABASE TODO>
 		<label for="empID">Employee ID:</label>
 		<input type="text" id="empID" name="employeeID" placeholder="...">
 		<br>
@@ -57,6 +58,7 @@
 		<input type="text" id="specialization" name="specialization" placeholder="...">
 		<br>
 	  <a href="MedPASS_AdminManageEmpInfo.php"><input type="submit" value="Submit Edit Info"></a>
+      </form>
       </p>
 
     </div>

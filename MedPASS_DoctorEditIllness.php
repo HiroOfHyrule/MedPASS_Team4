@@ -18,6 +18,7 @@
         <div class="menu">
           <ul>
             <li><a href="MedPASS_DoctorHome.php">Home</a></li>
+			<li><a href="MedPASS_DoctorViewPatientInfo.php">Back</a></li>
 			<li><a href="MedPASS_Welcome.php">Logout</a></li>
           </ul>
         </div>
@@ -26,7 +27,7 @@
 
     <section id="showcase">
       <div class="patientSubPage">
-        <h1>Your Practitioner Information</h1>
+        <h1>Edit or Delete an Illness</h1>
       </div>
     </section>
   </div>
@@ -34,10 +35,28 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
-		<label for="ill">Illness:</label>
+      <form  method="POST" action="MedPASS_DoctorViewPatientInfo.php"> <!DATABASE TODO>
+		<label for="ill">Illness Name:</label>
 		<input type="text" id="ill" name="illness" placeholder="Illness..">
 		<br>
-	  <a href="MedPASS_DoctorManagePatientInfo.php"><input type="submit" value="Submit Illness"></a>
+		<label for="ill">Causes:</label>
+		<input type="text" id="ill" name="illness" placeholder="Illness..">
+		<br>
+		<label for="ill">Symptoms:</label>
+		<input type="text" id="ill" name="illness" placeholder="Illness..">
+		<br>
+	  <a href="MedPASS_DoctorViewPatientInfo.php"><input type="submit" value="Edit Illness Info"></a>
+      </form>
+	  </p>
+	  <br>
+	  <br>
+	  <p>
+	  <form  method="POST" action="MedPASS_DoctorViewPatientInfo.php"> <!DATABASE TODO>
+	  <label for="ill">Illness Name:</label>
+		<input type="text" id="ill" name="illness" placeholder="Illness..">
+		<br>
+	  <a href="MedPASS_DoctorViewPatientInfo.php"><input type="submit" value="Delete Illness"></a><br>
+	  </form>
       </p>
 
     </div>

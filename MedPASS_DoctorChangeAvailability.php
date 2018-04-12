@@ -27,7 +27,7 @@
 
     <section id="showcase">
       <div class="patientSubPage">
-        <h1>Change Your Availability</h1>
+        <h1>Enter Your Availability</h1>
       </div>
     </section>
   </div>
@@ -35,6 +35,7 @@
   <section id"content">
     <div class="container availability">
 	<br>
+    <form  method="POST" action="MedPASS_DoctorHome.php"> <!DATABASE TODO>
 	 <label class="containerAvail"><input type="checkbox" id="Mon0800"><span class="checkboxAvailMon"></span></label>
 	 <label class="containerAvail"><input type="checkbox" id="Tue0800"><span class="checkboxAvailTue"></span></label>
 	 <label class="containerAvail"><input type="checkbox" id="Wed0800"><span class="checkboxAvailWed"></span></label>
@@ -171,7 +172,8 @@
 	  
       
     </div>
-	<a href="MedPASS_DoctorSchedule.php"><input type="submit" value="Submit New Availability"></a>
+	<a href="MedPASS_DoctorHome.php"><input type="submit" value="Submit New Availability"></a>
+    </form>
   </section>
   
   <footer>

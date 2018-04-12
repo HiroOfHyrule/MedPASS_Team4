@@ -34,12 +34,22 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
+      <form  method="POST" action="MedPASS_AdminManagePatientInfo.php"> <!DATABASE TODO>
+        <label for="fname">Enter Patient's First Name:</label>
+		<input type="text" id="fname" name="firstname" placeholder="First Name..">
+		<br>
+        <label for="lname">Enter Patient's Last Name:</label>
+		<input type="text" id="lname" name="lastname" placeholder="Last Name..">
+		<br>
 		<label for="PID">Enter Patient ID:</label>
 		<input type="text" id="PID" name="patientID" placeholder="Patient ID..">
 		<br>
 	    <a href="MedPASS_AdminManagePatientInfo.php"><input type="submit" value="View Patient Information"></a>
-        <br><br>
+        </form>
+        <br>
+        <form  method="POST" action="MedPASS_AdminAddNewPatient.php"> <!DATABASE TODO>
         <a href="MedPASS_AdminAddNewPatient.php"><input type="submit" value="Add New Patient"></a>
+        </form>
       </p>
 
     </div>

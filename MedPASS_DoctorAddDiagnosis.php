@@ -18,6 +18,7 @@
         <div class="menu">
           <ul>
             <li><a href="MedPASS_DoctorHome.php">Home</a></li>
+			<li><a href="MedPASS_DoctorManagePatientInfo.php">Back</a></li>
 			<li><a href="MedPASS_Welcome.php">Logout</a></li>
           </ul>
         </div>
@@ -26,7 +27,7 @@
 
     <section id="showcase">
       <div class="patientSubPage">
-        <h1>Your Practitioner Information</h1>
+        <h1>Diagnose an Illness</h1>
       </div>
     </section>
   </div>
@@ -34,10 +35,13 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
-		<label for="diag">Diagnosis:</label>
-		<input type="text" id="diag" name="diagnosis" placeholder="Diagnosis..">
+      <form  method="POST" action="MedPASS_DoctorManagePatientInfo.php"> <!DATABASE TODO>
+		<label for="diag">Illness Name:</label>
+		<input type="text" id="diag" name="diagnosis" placeholder="Illness Name..">
 		<br>
+
 	  <a href="MedPASS_DoctorManagePatientInfo.php"><input type="submit" value="Submit Diagnosis"></a>
+      </form>
       </p>
 
     </div>

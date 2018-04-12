@@ -34,7 +34,10 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
-	  Diagnoses: <br>
+      
+      <!DATABASE TODO>
+      
+	  Diagnosed Illnesses: <br>
 	  Treatments: <br>
       </p>
 

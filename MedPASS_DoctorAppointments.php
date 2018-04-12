@@ -174,7 +174,7 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
     </div>
 	
 	<div id="book-appt" class="container contentSubPage" style="display: none;">
-		<form>
+		<form  method="POST" action="MedPASS_DoctorAppointments.php"> <!DATABASE TODO>
 			<label for="fname">First Name:</label>
 			<input type="text" id="fname" name="firstname" placeholder="Your first name..">
 			<br>

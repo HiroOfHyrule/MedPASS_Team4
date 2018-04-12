@@ -25,7 +25,7 @@
 
     <section id="showcase">
       <div class="scheduling">
-        <h1>Welcome Insert Admin Name!</h1>
+        <h1>Welcome Insert Admin Name!</h1> <!DATABASE TODO>
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis </p>
       </div>
     </section>
@@ -55,19 +55,19 @@
   </section>
   <section id="boxes2">
     <div class="container">
-	<a href="MedPASS_DoctorViewPatientInfo.php">
+	<a href="MedPASS_AdminScheduleLists.php">
       <div class="box">
         <img src="AdminSchedule.png">
         <h3>Schedule <br> Lists</h3>
       </div>
 	</a>
-    <a href="MedPASS_DoctorViewPatientInfo.php">
+    <a href="MedPASS_AdminAppointmentsList.php">
       <div class="box">
         <img src="AdminAppointment.png">
         <h3>Appointment <br> Lists</h3>
       </div>
 	</a>
-    <a href="MedPASS_DoctorViewPatientInfo.php">
+    <a href="MedPASS_AdminEquipmentsList.php">
       <div class="box">
         <img src="AdminViewEquip.png">
         <h3>Equipment <br> Lists</h3>
