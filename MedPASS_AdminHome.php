@@ -41,13 +41,13 @@
 	<a href="MedPASS_AdminViewEmpInfo.php">
       <div class="box">
         <img src="AdminViewDoctorInfo.png">
-        <h3>Practitioners <br> Information</h3>
+        <h3>Manage Employee <br> Information</h3>
       </div>
 	</a>
     <a href="MedPASS_AdminViewPatientInfo.php">
       <div class="box">
         <img src="AdminViewPatientInfo.png">
-        <h3>Patients <br> Information</h3>
+        <h3>Manage Patient <br> Information</h3>
       </div>
 	</a>
     </div>
