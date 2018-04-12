@@ -36,6 +36,8 @@ $html_title = date('F', $timestamp) . " " . date('Y', $timestamp);
 // for popup date title
 $html_todays_date =  date('F', $timestamp) . " " .  date('d', $timestamp);
 
+
+
  
 // Create prev & next month link     mktime(hour,minute,second,month,day,year)
 $prev = date('Y-m', mktime(0, 0, 0, date('m', $timestamp)-1, 1, date('Y', $timestamp)));
@@ -56,11 +58,16 @@ $td_id = '';
  
 // Add empty cell
 $week .= str_repeat('<td></td>', $str);
+
+$yearToday = date('Y', $timestamp);
+
+
+
  
 for ( $day = 1; $day <= $day_count; $day++, $str++) {
      
     $date = $ym.'-'.$day;
-    $td_id = date('F', $timestamp) . '-' . $day;
+    $td_id = $yearToday . '-' . date('m', $timestamp) . '-' . $day;
     if ($today == $date) {
         $week .= '<td id="' . $td_id . '"' . ' class="today" onclick="toggle_visibility(\'' . $td_id . '\');">'.$day;
     } else {
@@ -100,8 +107,13 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
 			<!--
 			    function toggle_visibility(id) {
 			       var e = document.getElementById("popup-box");
-				   var toDisplay = id.replace("-", " ");
+				   var toDisplay = id.replace("-", "");
+				   toDisplay = toDisplay.replace("-", "");
 				   document.getElementById("date-popup").innerHTML = toDisplay;
+				   
+				   var dateFormat = id.replace("-", "");
+				   var finalDate = dateFormat.replace("-", "");
+				   document.getElementById("date-clicked").value = finalDate;
 				   
 			       if(e.style.display == 'block')
 			          e.style.display = 'none';
@@ -114,6 +126,16 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
 					x.style.display = "block";
 					window.scrollTo(0,document.body.scrollHeight);
 				}
+				
+				function show_avail_dates() {
+					var e = document.getElementById("avail-dates");
+					e.style.display = "block";
+				}
+				
+				function show_avail_times() {
+					var e = document.getElementById("avail-times");
+					e.style.display = "block";
+				}
 			//-->
 		</script>
 	
@@ -125,7 +147,9 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
 		<div id="popup-wrapper">
 			<div id="popup-container">
 				<h3 id="date-popup">Date here</h3>
+				<!-- ymd --> 
 				<p id="appt-info">You have no appointments booked at this date.</p>
+				<form> <input type="text" id="date-clicked" name="dateClicked" style="display: none;"></form>
 				<p><a href="javascript:void(0)" onclick="toggle_visibility('popup-box');">Close</a></p>
 			</div>
 		</div>
@@ -185,14 +209,8 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
     </div>
 	
 	<div id="book-appt" class="container contentSubPage" style="display: none;">
-		<form method="POST" action"">
+		<form method="POST" action="">
 			
-			<label for="appt-date">Date:</label>
-			<input type="date" id="appt-date" name="appointmentdate">
-			<br>
-			<label for="appointmenttime">Time:</label>
-			<input type="time" id="appointmenttime" name="appointmenttime" placeholder="Enter time..">
-			<br>
 			<label for="drname">Doctor's name:</label>
             <?php
             include 'config.php';
@@ -210,8 +228,24 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
             mysqli_close($link);
             ?>
 			<br>
-			</form>
-	  <input type="submit" name="submit" value="Book This Appointment"></a>
+		</form>
+		<form method="POST" action="">
+			<div id="avail-dates" style="display: none;">
+				<label for="appt-date">Date:</label>
+				<input type="date" id="appt-date" name="appointmentdate">
+				<br>
+				<input type="submit" name="submit" value="Select This Date"></a>
+			</div>
+		</form>
+		<form method="POST" action="">
+			<div id="avail-times" style="display: none;">
+				<label for="appointmenttime">Time:</label>
+				<input type="time" id="appointmenttime" name="appointmenttime" placeholder="Enter time..">
+				<br>
+				<input type="submit" name="submit" value="Book This Appointment"></a>
+			</div>
+		</form>
+	  
      
 	</div>
 	
