@@ -26,7 +26,7 @@
 
     <section id="showcase">
       <div class="patientSubPage">
-        <h1>Your Practitioner Information</h1>
+        <h1>Your Admin Information</h1>
       </div>
     </section>
   </div>
