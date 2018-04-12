@@ -41,7 +41,7 @@
 
    <section id="showcase">
       <div class="patientSubPage">
-        <h1>Equipments</h1>
+        <h1>Rental Equipment</h1>
       </div>
     </section>
   </div>
