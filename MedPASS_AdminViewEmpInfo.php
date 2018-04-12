@@ -35,13 +35,13 @@
     <div class="container contentSubPage">
       <p>
       <form  method="POST" action="MedPASS_AdminManageEmpInfo.php"> <!DATABASE TODO>
-		<label for="fname">Enter Practitioner's First Name:</label>
+		<label for="fname">Enter Employee's First Name:</label>
 		<input type="text" id="fname" name="firstname" placeholder="First Name..">
 		<br>
-        <label for="lname">Enter Practitioner's Last Name:</label>
+        <label for="lname">Enter Employee's Last Name:</label>
 		<input type="text" id="lname" name="lastname" placeholder="Last Name..">
 		<br>
-        <label for="empID">Enter Practitioner's Employee ID:</label>
+        <label for="empID">Enter Employee ID:</label>
 		<input type="text" id="empID" name="employeeID" placeholder="Employee ID..">
 		<br>
 	    <a href="MedPASS_AdminManageEmpInfo.php"><input type="submit" value="View Employee Information"></a>
