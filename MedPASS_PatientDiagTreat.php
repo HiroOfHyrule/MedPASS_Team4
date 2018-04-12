@@ -37,7 +37,7 @@
       
       <!DATABASE TODO>
       
-	  Diagnoses: <br>
+	  Diagnosed Illnesses: <br>
 	  Treatments: <br>
       </p>
 

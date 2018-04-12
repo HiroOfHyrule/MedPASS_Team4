@@ -26,7 +26,7 @@
 
     <section id="showcase">
       <div class="patientSubPage">
-        <h1>Your Practitioner Information</h1>
+        <h1>Manage Patients and Illnesses</h1>
       </div>
     </section>
   </div>
@@ -47,7 +47,8 @@
 	  <a href="MedPASS_DoctorManagePatientInfo.php"><input type="submit" value="View Patient Information"></a>
       </form>
       </p>
-
+		<a href="MedPASS_DoctorAddIllness.php"><input type="submit" value="Add New Illness"></a>
+		<a href="MedPASS_DoctorEditIllness.php"><input type="submit" value="Edit/Delete Illness"></a> <br>
     </div>
   </section>
   

@@ -27,7 +27,7 @@
 
     <section id="showcase">
       <div class="patientSubPage">
-        <h1>Your Practitioner Information</h1>
+        <h1>Undiagnose an Illness</h1>
       </div>
     </section>
   </div>
@@ -36,8 +36,8 @@
     <div class="container contentSubPage">
       <p>
       <form  method="POST" action="MedPASS_DoctorManagePatientInfo.php"> <!DATABASE TODO>
-		<label for="diag">Diagnosis:</label>
-		<input type="text" id="diag" name="diagnosis" placeholder="Diagnosis..">
+		<label for="diag">Illness Name:</label>
+		<input type="text" id="diag" name="diagnosis" placeholder="Illness Name..">
 		<br>
 	  <a href="MedPASS_DoctorManagePatientInfo.php"><input type="submit" value="Submit Diagnosis"></a>
       </form>

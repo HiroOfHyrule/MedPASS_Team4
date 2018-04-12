@@ -21,7 +21,8 @@
     <section id="showcase">
       <div class="welcomeScreen">
         <h1>Welcome to MedPASS!</h1>
-        <p>MedPASS, the Medical Practitioner/Patient Appointment Scheduling System, is the answer to all your appointment scheduling problems. Huzzah!</p>
+		<br>
+        <p>Thank you for choosing the Medical Practitioner/Patient Appointment Scheduling System<br> for all your appointment scheduling needs! <br> <br>Please login below:</p>
 		<a href="MedPASS_PatientLogin.php"><input type="submit" value="Patient Login"></a><br>
 		<a href="MedPASS_DoctorLogin.php"><input type="submit" value="Practitioner Login"></a><br>
 		<a href="MedPASS_AdminLogin.php"><input type="submit" value="Admin Login"></a>

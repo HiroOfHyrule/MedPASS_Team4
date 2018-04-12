@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>MedPASS</title>
-  <link rel="stylesheet" href="HomeFormat.css">
+  <link rel="stylesheet" href="DoctorFormat.css">
 </head>
 
 <body>
@@ -17,7 +17,8 @@
         </div>
         <div class="menu">
           <ul>
-            <li><a href="MedPASS_PatientHome.php">Home</a></li>
+            <li><a href="MedPASS_DoctorHome.php">Home</a></li>
+			<li><a href="MedPASS_DoctorManagePatientInfo.php">Back</a></li>
 			<li><a href="MedPASS_Welcome.php">Logout</a></li>
           </ul>
         </div>
@@ -26,7 +27,7 @@
 
     <section id="showcase">
       <div class="patientSubPage">
-        <h1>Your Rented Equipment</h1>
+        <h1>Your Patient's Medical Record</h1>
       </div>
     </section>
   </div>
@@ -34,13 +35,21 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
-      <form  method="POST" action="MedPASS_PatientEquip.php"> <!DATABASE TODO>
-	  Equipment Rentals: <br>
-      </form>
-      </p>
+      
+      <!DATABASE TODO>
+      
+      Illness History: <br>
+	  Treatment History: <br>
+	  Family Medical History: <br>
+	  Medical Allergies: <br>
+	  Notes: <br> 
+	  </p>
+
+	  <a href="MedPASS_DoctorEditMedRec.php"><input type="submit" value="Edit Medical Record"></a>
 
     </div>
   </section>
+  
   
   <footer>
     <p>The MedPASS Organization, Copyright &copy; 2018</p>

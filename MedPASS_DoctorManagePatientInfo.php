@@ -26,7 +26,7 @@
 
     <section id="showcase">
       <div class="patientSubPage">
-        <h1>Your Practitioner Information</h1>
+        <h1>Your Patient's Info</h1>
       </div>
     </section>
   </div>
@@ -46,19 +46,18 @@
 	  Phone Number: <br>
 	  Email: <br>
 	  <br>
-	  Medical Record: <br>
-      Rented Equipments: <br>
-      <br> <br>
-      Illnesses: <br>
-      <a href="MedPASS_DoctorAddIllness.php"><input type="submit" value="Add Illnesses"></a> 
-      <a href="MedPASS_DoctorEditIllness.php"><input type="submit" value="Edit Illnesses"></a> <br>
-      Diagnosis: <br>
-      <a href="MedPASS_DoctorAddDiagnosis.php"><input type="submit" value="Add Diagnosis"></a>
-      <a href="MedPASS_DoctorEditDiagnosis.php"><input type="submit" value="Edit Diagnosis"></a> <br>
-      Treatments: <br>  
-	  <a href="MedPASS_DoctorAddTreatment.php"><input type="submit" value="Add Treatments"></a> 
-      <a href="MedPASS_DoctorEditTreatment.php"><input type="submit" value="Edit Treatments"></a>
-      </p>
+      Rented Equipment: <br>
+      <br>
+      Diagnosed Illnesses: <br>
+	  Treatments:  <br>  
+	  </p>
+      <a href="MedPASS_DoctorAddDiagnosis.php"><input type="submit" value="Assign Diagnosis"></a>
+      <a href="MedPASS_DoctorEditDiagnosis.php"><input type="submit" value="Unassign Diagnosis"></a> <br>
+      
+	  <a href="MedPASS_DoctorAddTreatment.php"><input type="submit" value="Assign Treatments"></a> 
+      <a href="MedPASS_DoctorEditTreatment.php"><input type="submit" value="Unassign Treatments"></a><br>
+      
+	  <a href="MedPASS_DoctorViewMedRec.php"><input type="submit" value="View Medical Record"></a>
 
     </div>
   </section>
