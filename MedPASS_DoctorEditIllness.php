@@ -36,14 +36,14 @@
     <div class="container contentSubPage">
       <p>
       <form  method="POST" action="MedPASS_DoctorViewPatientInfo.php"> <!DATABASE TODO>
-		<label for="ill">Illness Name:</label>
+		<label for="ill">Illness Name:</label><br>
 		<input type="text" id="ill" name="illness" placeholder="Illness...">
 		<br>
-		<label for="ill">Causes:</label>
-		<input type="text" id="ill" name="illness" placeholder="Causes...">
+		<label for="ill">Causes:</label><br>
+		<textarea name="textarea" maxlength = "255" cols="85" rows="3" id="cause" name="causes" placeholder="Causes..."></textarea>
 		<br>
-		<label for="ill">Symptoms:</label>
-		<input type="text" id="ill" name="illness" placeholder="Symptoms...">
+		<label for="ill">Symptoms:</label><br>
+		<textarea name="textarea" maxlength = "255" cols="85" rows="3" id="sympt" name="symptoms" placeholder="Symptoms..."></textarea>
 		<br>
 	  <a href="MedPASS_DoctorViewPatientInfo.php"><input type="submit" value="Edit Illness Info"></a>
       </form>
@@ -52,7 +52,7 @@
 	  <br>
 	  <p>
 	  <form  method="POST" action="MedPASS_DoctorViewPatientInfo.php"> <!DATABASE TODO>
-	  <label for="ill">Illness Name:</label>
+	  <label for="ill">Illness Name:</label><br>
 		<input type="text" id="ill" name="illness" placeholder="Illness..">
 		<br>
 	  <a href="MedPASS_DoctorViewPatientInfo.php"><input type="submit" value="Delete Illness"></a><br>
