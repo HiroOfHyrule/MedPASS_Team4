@@ -46,10 +46,10 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
     <div class="container availability">
 	<br>
     <form  method="POST" action="MedPASS_DoctorHome.php"> <!DATABASE TODO>
-	  <label for="fname">Time-off Start Time:</label> <br>
+	  <label for="timeOffStart">Time-off Start Time:</label> <br>
 	  <input type="date" name="timeOffStart" min="2017-04-12">
 	  <br>
-	  <label for="fname">Time-off End Time:</label><br>
+	  <label for="timeOffEnd">Time-off End Time:</label><br>
 	  <input type="date" name="timeOffEnd" min="2017-04-12">
 	  <br>
 	<input type="submit" name="submit" value="Submit Time Off Request"></a>
