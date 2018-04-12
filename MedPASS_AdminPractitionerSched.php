@@ -36,7 +36,7 @@
   <section id"content">
     <div class="container availability">
 	<br>
-	 <form method="POST" action="">
+	 <form method="POST" action=""> <!DATABASE TODO>
 	 <label class="containerAvail"><input type="checkbox" name="Mon0800"><span class="checkboxAvailMon"></span></label>
 	 <label class="containerAvail"><input type="checkbox" name="Tue0800"><span class="checkboxAvailTue"></span></label>
 	 <label class="containerAvail"><input type="checkbox" name="Wed0800"><span class="checkboxAvailWed"></span></label>

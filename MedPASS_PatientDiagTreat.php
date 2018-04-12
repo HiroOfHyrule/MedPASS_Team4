@@ -34,6 +34,9 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
+      
+      <!DATABASE TODO>
+      
 	  Diagnoses: <br>
 	  Treatments: <br>
       </p>

@@ -35,6 +35,7 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
+      <form  method="POST" action="MedPASS_PatientInfo.php"> <!DATABASE TODO>
 		<label for="fname">First Name:</label>
 		<input type="text" id="fname" name="firstname" placeholder="Your first name..">
 		<br>
@@ -57,6 +58,7 @@
 		<input type="text" id="mail" name="email" placeholder="Your email..">
 		<br>
 	  <a href="MedPASS_PatientInfo.php"><input type="submit" value="Submit Edit Info"></a>
+      </form>
       </p>
 
     </div>

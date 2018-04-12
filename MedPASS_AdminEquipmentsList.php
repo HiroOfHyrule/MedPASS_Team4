@@ -48,7 +48,7 @@
  <section id="content">
     <div class="container contentSubPage" align="center">
       <p style="font-size:18px;">
-		Insert equipments list here
+		Insert equipments list here  <!DATABASE TODO>
       </p>
 	</div>
 	

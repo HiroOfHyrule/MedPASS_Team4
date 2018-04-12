@@ -18,6 +18,7 @@
         <div class="menu">
           <ul>
             <li><a href="MedPASS_DoctorHome.php">Home</a></li>
+			<li><a href="MedPASS_DoctorManagePatientInfo.php">Back</a></li>
 			<li><a href="MedPASS_Welcome.php">Logout</a></li>
           </ul>
         </div>
@@ -33,11 +34,13 @@
 
   <section id"content">
     <div class="container contentSubPage">
-      <p>      
+      <p> 
+      <form  method="POST" action="MedPASS_DoctorManagePatientInfo.php"> <!DATABASE TODO>
 		<label for="treat">Treatment:</label>
 		<input type="text" id="treat" name="treatment" placeholder="Treatment..">
 		<br>
 	  <a href="MedPASS_DoctorManagePatientInfo.php"><input type="submit" value="Submit Treatment"></a>
+      </form>
       </p>
 
     </div>

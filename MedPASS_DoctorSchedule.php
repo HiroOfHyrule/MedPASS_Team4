@@ -26,7 +26,7 @@
 
     <section id="showcase">
       <div class="patientSubPage">
-        <h1>Your Appointments</h1>
+        <h1>Your Availability Schedule</h1>
       </div>
     </section>
   </div>
@@ -34,10 +34,7 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
-	  Appointment Info! <br>
-	  <a href="MedPASS_DoctorChangeAvailability.php"><input type="submit" value="Change Availability"></a> <br>
-	  <a href="MedPASS_DoctorAppointments.php"><input type="submit" value="Cancel Appointment"></a> <br>
-	  <a href="MedPASS_BookAppointment.php"><input type="submit" value="View Appointments"></a>
+	  <a href="MedPASS_DoctorHome.php"><input type="submit" value="Enter Availability"></a> <br>
       </p>
 
     </div>

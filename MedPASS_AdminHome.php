@@ -25,7 +25,7 @@
 
     <section id="showcase">
       <div class="scheduling">
-        <h1>Welcome Insert Admin Name!</h1>
+        <h1>Welcome Insert Admin Name!</h1> <!DATABASE TODO>
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis </p>
       </div>
     </section>

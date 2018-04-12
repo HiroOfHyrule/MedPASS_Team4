@@ -35,19 +35,24 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
-      Patient ID: <span style="padding: 0 40px">&nbsp;</span>   <br>
-	  First Name: <span style="padding: 0 40px">&nbsp;</span>   <br>
-	  Last Name: <span style="padding: 0 40px">&nbsp;</span>    <br>
+      
+      <!DATABASE TODO>
+      
+      Patient ID:    <br>
+	  First Name:   <br>
+	  Last Name:    <br>
       Birthday: <br>
       Gender: <br>
-	  Address: <span style="padding: 0 40px">&nbsp;</span>      <br>
-	  Phone Number: <span style="padding: 0 40px">&nbsp;</span>     <br>
-	  Email: <span style="padding: 0 40px">&nbsp;</span>    <br>
+	  Address:      <br>
+	  Phone Number:      <br>
+	  Email:     <br>
       <br> <br>
       
       <a href="MedPASS_AdminEditPatientInfo.php"><input type="submit" value="Edit Patient Info"></a> 
       <br>
+      <form  method="POST" action="MedPASS_AdminViewPatientInfo.php"> <!DATABASE TODO>
       <a href="MedPASS_AdminViewPatientInfo.php"><input type="submit" value="Delete Patient"></a>
+      </form>
       </p>
 
     </div>

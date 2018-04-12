@@ -34,8 +34,10 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
+      <form  method="POST" action="MedPASS_PatientEquip.php"> <!DATABASE TODO>
 	  Equipment Rental Details! <br>
 	  <a href="MedPASS_PatientEquip.php"><input type="submit" value="View Rental Equipment"></a>
+      </form>
       </p>
 
     </div>

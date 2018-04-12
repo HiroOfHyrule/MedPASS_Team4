@@ -27,6 +27,7 @@
       <div class="loginScreen">
         <h1>Welcome to the Patient Login!</h1>
         <p>Please enter your username and password below. </p>
+        <form  method="POST" action="MedPASS_PatientHome.php"> <!DATABASE TODO>
 		<label for="fname">Username:</label>
 		<input type="text" id="user" name="username" placeholder="Your username..">
 		<br>
@@ -34,6 +35,7 @@
 		<input type="password" id="lname" name="password" placeholder="Your password..">
 		<br>
 		<a href="MedPASS_PatientHome.php"><input type="submit" value="Submit"></a>
+        </form>
 	  </div>
     </section>
   </div>

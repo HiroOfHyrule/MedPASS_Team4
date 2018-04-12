@@ -34,25 +34,28 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
-      Patient ID: <span style="padding: 0 40px">&nbsp;</span>   <br>
-	  First Name: <span style="padding: 0 40px">&nbsp;</span>   <br>
-	  Last Name: <span style="padding: 0 40px">&nbsp;</span>    <br>
-	  Birthday: <span style="padding: 0 40px">&nbsp;</span>     <br>
-	  Gender: <span style="padding: 0 40px">&nbsp;</span>   <br>
-	  Address: <span style="padding: 0 40px">&nbsp;</span>      <br>
-	  Phone Number: <span style="padding: 0 40px">&nbsp;</span>     <br>
-	  Email: <span style="padding: 0 40px">&nbsp;</span>    <br>
-      Rented Equipments: <span style="padding: 0 40px">&nbsp;</span>    <br>
+      
+      <!DATABASE TODO>
+      
+      Patient ID: <br>
+	  First Name: <br>
+	  Last Name: <br>
+	  Birthday: <br>
+	  Gender: <br>
+	  Address: <br>
+	  Phone Number: <br>
+	  Email: <br>
+      Rented Equipments: <br>
       <br> <br>
       Illnesses: <br>
       <a href="MedPASS_DoctorAddIllness.php"><input type="submit" value="Add Illnesses"></a> 
       <a href="MedPASS_DoctorEditIllness.php"><input type="submit" value="Edit Illnesses"></a> <br>
       Diagnosis: <br>
       <a href="MedPASS_DoctorAddDiagnosis.php"><input type="submit" value="Add Diagnosis"></a>
-      <a href="MedPASS_DoctorEditIllness.php"><input type="submit" value="Edit Illnesses"></a> <br>
+      <a href="MedPASS_DoctorEditDiagnosis.php"><input type="submit" value="Edit Diagnosis"></a> <br>
       Treatments: <br>  
 	  <a href="MedPASS_DoctorAddTreatment.php"><input type="submit" value="Add Treatments"></a> 
-      <a href="MedPASS_DoctorEditIllness.php"><input type="submit" value="Edit Illnesses"></a>
+      <a href="MedPASS_DoctorEditTreatment.php"><input type="submit" value="Edit Treatments"></a>
       </p>
 
     </div>

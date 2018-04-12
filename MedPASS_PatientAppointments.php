@@ -137,7 +137,7 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
 
     <section id="showcase">
       <div class="patientSubPage">
-        <h1>Your Appointments</h1>
+        <h1>Your Appointments</h1> <!DATABASE TODO>
       </div>
     </section>
   </div>

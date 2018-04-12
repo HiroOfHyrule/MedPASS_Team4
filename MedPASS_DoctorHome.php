@@ -25,7 +25,7 @@
 
     <section id="showcase">
       <div class="scheduling">
-        <h1>Welcome Insert Practitioner Name!</h1>
+        <h1>Welcome Insert Practitioner Name!</h1> <!DATABASE TODO>
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis </p>
       </div>
     </section>
@@ -45,7 +45,7 @@
         <h3>View Your <br> Appointments</h3>
       </div>
 	</a>
-    <a href="MedPASS_DoctorSchedule.php">
+    <a href="MedPASS_DoctorChangeAvailability.php">
       <div class="box">
         <img src="ManageScheduleDoctor.png">
         <h3>Manage Your <br> Schedule</h3>
