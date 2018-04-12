@@ -36,7 +36,7 @@
     <div class="container contentSubPage">
       <p> 
       <form  method="POST" action="MedPASS_DoctorManagePatientInfo.php"> <!DATABASE TODO>
-		<label for="treat">Treatment Name:</label>
+		<label for="treat">Treatment Name:</label><br>
 		<input type="text" id="treat" name="treatment" placeholder="Treatment..">
 		<br>
 		<label for="treatDesc">Treatment Description:</label><br>
