@@ -45,6 +45,8 @@
 	  Address: <br>
 	  Phone Number: <br>
 	  Email: <br>
+	  <br>
+	  Medical Record: <br>
       Rented Equipments: <br>
       <br> <br>
       Illnesses: <br>
