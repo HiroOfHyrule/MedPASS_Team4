@@ -60,6 +60,24 @@ exit();
 
   <section id"content">
     <div class="container contentSubPage">
+	    This Patient's Illnesses:<?php 
+                 include 'config.php';
+                $sql = "SELECT Illness_Name FROM affects WHERE PID = '".$pid."'";
+                $result = mysqli_query($link, $sql);
+                if(!$result) {
+                echo "Error: " . $sql . "<br>" . mysqli_error($link);
+                }
+                $str ="    ";
+                while ($row = mysqli_fetch_array($result)) {
+                $ill = $row['Illness_Name'];
+                
+                $str.= " ".$ill.",";
+                }
+                $str = substr($str,0,-1);
+                echo $str;
+                mysqli_close($link);
+                ?><br>
+	    
       <p>
       <form  method="POST" action="">
 		<label for="diag">Illness Name:</label><br>
