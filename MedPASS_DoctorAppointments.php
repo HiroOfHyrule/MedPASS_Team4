@@ -165,40 +165,6 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
 		</table>
 	</div>
 	
-
-	<div class="container contentSubPage">
-      <p>
-	  You have no upcoming appointments.<br>
-	  <a onclick="toggle_book_appt();"><input type="submit" value="Book an appointment"></a>
-      </p>
-    </div>
-	
-	<div id="book-appt" class="container contentSubPage" style="display: none;">
-		<form  method="POST" action="MedPASS_DoctorAppointments.php"> <!DATABASE TODO>
-			<label for="fname">First Name:</label>
-			<input type="text" id="fname" name="firstname" placeholder="Your first name..">
-			<br>
-			<label for="lname">Last Name:</label>
-			<input type="text" id="lname" name="lastname" placeholder="Your last name..">
-			<br>
-			<label for="appt-date">Date:</label>
-			<input type="date" id="appt-date" name="appointmentdate">
-			<br>
-			<label for="appointmenttime">Time:</label>
-			<input type="time" id="appointmenttime" name="appointmenttime" placeholder="Enter time..">
-			<br>
-			<label for="drname">Doctor's name:</label>
-			<input type="text" id="addr" name="drname" placeholder="Your doctor's name..">
-			<br>
-			</form>
-	  <a href="MedPASS_DoctorAppointments.php"><input type="submit" value="Book This Appointment"></a>
-     
-	</div>
-	
-	<div>
-	
-	</div>
-	
   </section>
   
   <footer>
