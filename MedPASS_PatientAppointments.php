@@ -8,6 +8,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   header("location: MedPASS_Welcome.php");
   exit;
 }
+
 ?>
 <?php
 // Set timezone
@@ -201,13 +202,34 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
 
 	<div class="container contentSubPage">
       <p>
-	  You have no upcoming appointments. To book an appointment, please fill in the form below<br>
+	   <?php
+
+    include 'config.php';
+    $sql = "SELECT a.Date, a.Time, p.LName FROM appointment as a, medical_practitioner as p 
+	WHERE PID='".$_SESSION['id']."' AND p.Employee_ID=a.Prac_ID";
+
+    $result = mysqli_query($link, $sql);
+    if(!$result) {
+    echo "Error: " . $sql . "<br>" . mysqli_error($link);
+    }
+
+    while ($row = mysqli_fetch_array($result)) {
+    $date = $row['Date'];
+	$time = $row['Time'];
+	$lname = $row['LName'];
+    echo "Dr ".$lname." at ".$time." on ".$date;
+    echo"<br>";
+    } 
+    mysqli_close($link);
+    
+?>
+	 <br>
 	  
       </p>
     </div>
 	
 	<div id="book-appt" class="container contentSubPage" >
-		<form method="POST" action="">
+		<form method="POST" action="addAppointment.php">
 			
 			<label for="drname">Doctor's name:</label>
             <?php
@@ -225,22 +247,23 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
             echo "</select>";
             mysqli_close($link);
             ?>
-			<br>
-			<a><input id="select-doctor" type="submit" name="submit" value="Select Doctor"></a>
-		</form>
-		<form method="POST" action="">
+			
+			
+		
+	
 			<div id="avail-dates" >
 				<label for="appt-date">Date:</label>
+				
 				<input type="date" id="appt-date" name="appointmentdate">
-				<br>
-				<a><input id="select-date" type="submit" name="submit" value="Select This Date"></a>
+				
+				
 			</div>
-		</form>
-		<form method="POST" action="">
+		
+		
 			<div id="avail-times" >
 				<label for="appointmenttime">Time:</label>
-				<input type="time" id="appointmenttime" name="appointmenttime" placeholder="Enter time..">
-				<br>
+				<input type="text" id="appointmenttime" name="appointmenttime" placeholder="Enter time..">
+				
 				<a><input id="book-appt" type="submit" name="submit" value="Book This Appointment" style="width:300px;"></a>
 			</div>
 		</form>

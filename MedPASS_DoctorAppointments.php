@@ -1,4 +1,13 @@
 <?php
+
+// Initialize the session
+session_start();
+ 
+// If session variable is not set it will redirect to login page
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  header("location: MedPASS_Welcome.php");
+  exit;
+}
 // Set timezone
 date_default_timezone_set('Canada/Mountain');
  
@@ -163,6 +172,59 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
 				}
 			?>
 		</table>
+	</div>
+	
+
+	<div class="container contentSubPage">
+	<p>
+	<?php
+      include 'config.php';
+    $sql = "SELECT a.Date, a.Time, p.FName, p.LName FROM appointment as a, patient as p WHERE a.Prac_ID = '".$_SESSION['id']."' 
+		AND a.PID=p.Patient_ID";
+
+    $result = mysqli_query($link, $sql);
+    if(!$result) {
+    echo "Error: " . $sql . "<br>" . mysqli_error($link);
+    }
+
+    while ($row = mysqli_fetch_array($result)) {
+    $fname = $row['FName'];
+	$lname = $row['LName'];
+	$date = $row['Date'];
+	$time = $row['Time'];
+	echo "Appointment with $fname $lname at $time on $date <br>";
+    } 
+    mysqli_close($link);
+	  
+	  if(!isset($fname)) {echo "You have no upcoming appointments.<br>";}?>
+	  <a onclick="toggle_book_appt();"><input type="submit" value="Book an appointment"></a>
+      </p>
+    </div>
+	
+	<div id="book-appt" class="container contentSubPage" style="display: none;">
+		<form  method="POST" action="MedPASS_DoctorAppointments.php"> <!DATABASE TODO>
+			<label for="fname">First Name:</label>
+			<input type="text" id="fname" name="firstname" placeholder="Your first name..">
+			<br>
+			<label for="lname">Last Name:</label>
+			<input type="text" id="lname" name="lastname" placeholder="Your last name..">
+			<br>
+			<label for="appt-date">Date:</label>
+			<input type="date" id="appt-date" name="appointmentdate">
+			<br>
+			<label for="appointmenttime">Time:</label>
+			<input type="time" id="appointmenttime" name="appointmenttime" placeholder="Enter time..">
+			<br>
+			<label for="drname">Doctor's name:</label>
+			<input type="text" id="addr" name="drname" placeholder="Your doctor's name..">
+			<br>
+			</form>
+	  <a href="MedPASS_DoctorAppointments.php"><input type="submit" value="Book This Appointment"></a>
+     
+	</div>
+	
+	<div>
+	
 	</div>
 	
   </section>

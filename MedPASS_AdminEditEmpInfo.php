@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  header("location: MedPASS_Welcome.php");
+  exit();
+}
+	
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -19,7 +29,7 @@
           <ul>
             <li><a href="MedPASS_AdminHome.php">Home</a></li>
 			<li><a href="MedPASS_AdminManageEmpInfo.php">Back</a></li>
-			<li><a href="MedPASS_Welcome.php">Logout</a></li>
+			<li><a href="logout.php">Logout</a></li>
           </ul>
         </div>
       </nav>
@@ -35,9 +45,12 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
-      <form  method="POST" action="MedPASS_AdminManageEmpInfo.php"> <!DATABASE TODO>
-		<label for="empID">Employee ID:</label>
-		<input type="text" id="empID" name="employeeID" placeholder="...">
+      <form  method="POST" action="editEMP.php"> 
+		<label for="user">Username:</label>
+		<input type="text" id="user" name="username" placeholder="...">
+		<br>
+		<label for="pw">Password:</label>
+		<input type="text" id="pw" name="password" placeholder="...">
 		<br>
         <label for="fname">First Name:</label>
 		<input type="text" id="fname" name="firstname" placeholder="...">
@@ -57,7 +70,7 @@
 		<label for="specialization">Specialization or Position:</label>
 		<input type="text" id="specialization" name="specialization" placeholder="...">
 		<br>
-	  <a href="MedPASS_AdminManageEmpInfo.php"><input type="submit" value="Submit Edit Info"></a>
+	  <input type="submit" name="submit" value="Submit Edit Info">
       </form>
       </p>
 

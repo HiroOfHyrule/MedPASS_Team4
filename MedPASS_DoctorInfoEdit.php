@@ -29,7 +29,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
           <ul>
             <li><a href="MedPASS_DoctorHome.php">Home</a></li>
 			<li><a href="MedPASS_DoctorInfo.php">Back</a></li>
-			<li><a href="MedPASS_Welcome.php">Logout</a></li>
+			<li><a href="logout.php">Logout</a></li>
           </ul>
         </div>
       </nav>

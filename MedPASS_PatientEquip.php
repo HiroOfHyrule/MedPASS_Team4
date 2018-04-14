@@ -47,20 +47,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
       <p>
      
 	  Equipment Rentals: <br>
-<table style="width:60%">
-  <tr>
-    <th>Equipment Name</th>
-    <th>Rental Start Date</th>
-    <th>Rental End Date</th>
-     <th>Cost per Month</th>
-  </tr>
-  <tr>
-    <td>Rock</td>
-    <td>Start Date</td>
-    <td>End Date</td>
-    <td>$23</td>
-</tr>
-</table> 
+	  (Equipment Name, Rentral Start Date, Rentral End Date, Cost Per Month)<br>
       <?php
 //code for displaying rental equip
     include 'config.php';

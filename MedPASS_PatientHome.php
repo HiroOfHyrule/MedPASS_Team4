@@ -75,8 +75,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   
   <section id"content">
     <div class="container contentHome">
-	<p>Your next appointment is with (inster Doctor Name) at (insert Date).</p> <!DATABASE TODO>
-    </div>
+	</div>
   </section>
   
   <footer>

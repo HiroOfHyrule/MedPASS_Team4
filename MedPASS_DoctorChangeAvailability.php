@@ -16,7 +16,6 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   <meta name="viewport" content="width=device-width">
   <title>MedPASS</title>
   <link rel="stylesheet" href="DoctorFormat.css">
-  <link rel="stylesheet" href="AvailabilityFormat.css">
 </head>
 
 <body>

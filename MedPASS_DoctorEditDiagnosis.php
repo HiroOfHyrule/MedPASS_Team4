@@ -60,9 +60,9 @@ exit();
 
   <section id"content">
     <div class="container contentSubPage">
-	    This Patient's Illnesses:<?php 
+	This Patient's Illnesses:<?php 
                  include 'config.php';
-                $sql = "SELECT Illness_Name FROM affects WHERE PID = '".$pid."'";
+                $sql = "SELECT Illness_Name FROM affects WHERE PID = '".$_SESSION['curPID']."'";
                 $result = mysqli_query($link, $sql);
                 if(!$result) {
                 echo "Error: " . $sql . "<br>" . mysqli_error($link);
@@ -77,7 +77,6 @@ exit();
                 echo $str;
                 mysqli_close($link);
                 ?><br>
-	    
       <p>
       <form  method="POST" action="">
 		<label for="diag">Illness Name:</label><br>

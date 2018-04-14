@@ -46,12 +46,9 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
     <div class="container contentSubPage">
       <p>
       <form  method="POST" action="MedPASS_AdminManageEmpInfo.php"> <!DATABASE TODO>
-		<label for="fname">Enter Employee's First Name:</label>
-		<input type="text" id="fname" name="firstname" placeholder="First Name..">
-		<br>
-        <label for="lname">Enter Employee's Last Name:</label>
-		<input type="text" id="lname" name="lastname" placeholder="Last Name..">
-		<br>
+		<label><input type="radio" name="role" value="doc"> Practitioner</label>
+        <label><input type="radio" name="role" value="admin"> Admin</label>
+			<br>
         <label for="empID">Enter Employee ID:</label>
 		<input type="text" id="empID" name="employeeID" placeholder="Employee ID..">
 		<br>

@@ -3,7 +3,7 @@ session_start();
 include 'addUser.php';
 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   header("location: MedPASS_Welcome.php");
-  exit;
+  exit();
 }
 ?>
 <?php
@@ -43,7 +43,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
           <ul>
             <li><a href="MedPASS_AdminHome.php">Home</a></li>
 			<li><a href="MedPASS_AdminViewPatientInfo.php">Back</a></li>
-			<li><a href="MedPASS_Welcome.php">Logout</a></li>
+			<li><a href="logout.php">Logout</a></li>
           </ul>
         </div>
       </nav>
