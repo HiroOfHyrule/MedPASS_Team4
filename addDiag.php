@@ -1,17 +1,18 @@
 <?php
 session_start();
+include 'db_functions.php';
+
 if(isset($_POST['submit'])) {
-include 'config.php';
+
 $illness = $_POST['diagnosis'];
 $pid = $_SESSION['curPID'];
-if (!$link) die("Connection failed: " . mysqli_connect_error());
-$query = "INSERT INTO affects(PID, Illness_Name)
-    Values('$illness','$pid')";
-  if (mysqli_query($link, $query)) {
-} else {
-    echo "Error: " . $query . "<br>" . mysqli_error($link);
-}
-mysqli_close($link);
+
+$sql2 = "INSERT INTO affects(PID, Illness_Name)
+     VALUES ('".$pid."', '".$illness."')";
+
+db_query($sql2);
+
+db_close();
 header("Location: MedPASS_DoctorManagePatientInfo.php");
 exit();
 }

@@ -74,7 +74,7 @@ foreach($rows as $value){
 		<input type="text" id="mail" name="email" placeholder="<?php echo$email;?>">
 		<br>
 		<label for="pos">Position:</label>
-		<input type="text" id="pos" name="position" placeholder="<?php echo$pos;?>">
+		<input type="text" id="pos" name="pos" placeholder="<?php echo$pos;?>">
 		<br>
         <label for="pw">Password:</label>
 		<input type="text" id="pw" name="pw" placeholder="***New Password***">

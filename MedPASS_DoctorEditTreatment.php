@@ -7,18 +7,15 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   header("location: MedPASS_Welcome.php");
   exit;
 }  
-include 'config.php';
+include 'db_functions.php';
 // for deleting an illness  
 if(isset($_POST['delete'])) {
-	$treatment = $_POST['illnessD'];
+	$treatment = $_POST['treatment'];
 	$pid = $_SESSION['curPID'];
 	$eid = $_SESSION['id'];
-	$query = "DELETE FROM treating WHERE treatmentName ='$treatment' AND PID ='$pid' AND PR_ID='$eid'";
-	if (mysqli_query($link, $query)) {
-	} else {
-		echo "Error: " . $query . "<br>" . mysqli_error($link);
-	}
-	mysqli_close($link);
+	$query = "DELETE FROM treating WHERE treatmentName ='".$treatment."' AND PID ='".$pid."' AND PR_ID='".$eid."'";
+	db_query($query);
+	db_close();
 	header("Location: MedPASS_DoctorManagePatientInfo.php");
 	exit();
 }
@@ -71,7 +68,7 @@ if(isset($_POST['delete'])) {
 
     <section id="showcase">
       <div class="patientSubPage">
-        <h1>Edit a Treatment</h1>
+        <h1>Delete a Treatment</h1>
       </div>
     </section>
   </div>
@@ -90,8 +87,16 @@ if(isset($_POST['delete'])) {
       </form>-->
 	  
 	  <form  method="POST" action=""> 
-	  <label for="ill">Treatment Name:</label>
-		<input type="text" id="ill" name="illnessD" placeholder="Treatment..">
+	  <select id="treatment" name="treatment">
+    <option value="">Select Treatment</option>
+    <?php
+    $sql = "SELECT * FROM treating WHERE PID='".$_SESSION['curPID']."' AND PR_ID='".$_SESSION['id']."'";
+    $row = db_select($sql);
+    foreach($row as $value){
+        echo '<option value="'.$value['treatmentName'].'">'.$value['treatmentName'].'</option>';
+    }
+    ?>
+    </select>
 		<br>
 	  <input type="submit" name="delete" value="Delete Treatment"><br>
 	  </form>

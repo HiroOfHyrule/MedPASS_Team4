@@ -2,6 +2,7 @@
 
 // Initialize the session
 session_start();
+include 'db_functions.php';
  
 // If session variable is not set it will redirect to login page
 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
@@ -46,10 +47,66 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
     <div class="container contentSubPage">
       <p>
       
-      <!DATABASE TODO>
+      <?php
+
+$rows = db_select("SELECT a.Illness_Name ,i.Cause, i.Symptom FROM affects as a, illness as i
+                    WHERE a.PID=".$_SESSION['id']." AND a.Illness_Name=i.Illness_Name");
+                    
+
+if(!empty($rows)){    
+echo "<table>
+      <thead{vertical-align: left}>
+        <tr>
+            <th>Diagnosed Illnesses</th>
+            <th>Cause</th>
+            <th>Symptoms</th>
+            
+        </tr>
+      </thead>";
+foreach($rows as $value) {
+    echo "<tr>";
+    
+    echo "<td>".$value['Illness_Name']."</td>";
+     echo "<td>".$value['Cause']."</td>";
+      echo "<td>".$value['Symptom']."</td>";
+    
+    echo "</tr>";
+}
+echo "</table>";
+} else {
+    echo "No Illness' Diagnosed";
+}
+db_close();
+
+
+$rows = db_select("SELECT * FROM treating
+                    WHERE PID=".$_SESSION['id']."");
+                    
+
+if(!empty($rows)){    
+echo "<table>
+      <thead{vertical-align: left}>
+        <tr>
+            <th>Treatment</th>
+            <th>Notes</th>
+        </tr>
+      </thead>";
+foreach($rows as $value) {
+    echo "<tr>";
+    
+    echo "<td>".$value['treatmentName']."</td>";
+    echo "<td>".$value['treatmentNote']."</td>";
+    echo "</tr>";
+}
+echo "</table>";
+} else {
+    echo "No Illness' Diagnosed";
+}
+db_close();
+?>
       
-	  Diagnosed Illnesses: <br>
-	  Treatments: <br>
+	  
+	 
       </p>
 
     </div>

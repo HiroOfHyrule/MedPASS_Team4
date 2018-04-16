@@ -45,8 +45,9 @@ include 'db_functions.php';
         if(!$result){
             mysqli_error($result);
         }
-        //header("Location: MedPASS_AdminInfo.php");
-        //exit();
+        echo $query;
+        header("Location: MedPASS_AdminInfo.php");
+        exit();
         
     }
     

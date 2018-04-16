@@ -16,7 +16,7 @@ include 'config.php';
             }
         if (!empty($_POST['password']))
             {
-            $query.=" Password='" . password_hash($_POST['password'], PASSWORD_DEFAULT)."',";
+            $query.=" PASSWORD='" . password_hash($_POST['password'], PASSWORD_DEFAULT)."',";
             } 
         if (!empty($_POST['lastname']))
             {

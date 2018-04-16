@@ -2,7 +2,7 @@
 
 // Initialize the session
 session_start();
- 
+include 'db_functions.php'; 
 // If session variable is not set it will redirect to login page
 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   header("location: MedPASS_Welcome.php");
@@ -47,29 +47,28 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
       <p>
      
 	  Equipment Rentals: <br>
-	  (Equipment Name, Rentral Start Date, Rentral End Date, Cost Per Month)<br>
-      <?php
-//code for displaying rental equip
-    include 'config.php';
-    $sql = "SELECT r.Start_Date, r.Return_Date, e.Equipment_Type, e.Cost_Per_Month
-                FROM patient AS p, assistance_equipment AS e, rents AS r
-                WHERE p.Patient_ID = '".$_SESSION['id']."' AND p.Patient_ID = r.PID AND
-                r.Equip_ID = e.Equip_ID";
-
-    $result = mysqli_query($link, $sql);
-    if(!$result) {
-    echo "Error: " . $sql . "<br>" . mysqli_error($link);
-    }
-
-    while ($row = mysqli_fetch_array($result)) {
-    $start = $row['Start_Date'];
-    $end = $row['Return_Date'];
-    $eType = $row['Equipment_Type'];
-    $cost = $row['Cost_Per_Month'];
-    echo $eType.",".$start.",".$end.",$".$cost;
-    echo"<br>";
-    } 
-    mysqli_close($link);
+	  <?php
+      $rows = db_select("SELECT E.Equipment_Type, R.Return_Date, E.Cost_Per_Month 
+                FROM patient as p, assistance_equipment as E, rents as R 
+                    WHERE R.PID=p.Patient_ID AND R.Equip_ID=E.Equip_ID 
+                    ORDER BY R.Return_Date AND p.Patient_ID='".$_SESSION['id']."'");
+echo "<table class=\"table\">
+      <thead{vertical-align: left}>
+        <tr>
+            <th>Equipment Type</th>
+            <th>Return Date</th>
+            <th>Monthly Cost($) </th>
+            
+        </tr>
+      </thead>";
+foreach($rows as $value) {
+    echo "<tr>";
+    echo "<td>".$value['Equipment_Type']."</td>";
+    echo "<td>".$value['Return_Date']."</td>";
+    echo "<td>".$value['Cost_Per_Month']."</td>";
+    echo "</tr>";
+}
+echo "</table>";
     
 ?>
       

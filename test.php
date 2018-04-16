@@ -1,3 +1,25 @@
+<html>
+<head>
+<style ="text\css">
+table, td, th, tr {
+ border: 1px solid black;
+ padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+tr:hover {background-color: #ddd;}
+
+th {
+ padding-top: 5px;
+ padding-bottom: 5px;
+ text-align: left;
+ background-color: #a53051;
+ color: white;
+}
+
+</style>
+</head>
+
 <?php
 include 'db_functions.php';
 $rows = db_select("SELECT p.FName, p.LName, E.Equipment_Type, R.Return_Date 
@@ -5,9 +27,7 @@ $rows = db_select("SELECT p.FName, p.LName, E.Equipment_Type, R.Return_Date
                     WHERE R.PID=p.Patient_ID AND R.Equip_ID = E.Equip_ID
                     ORDER BY R.Return_Date ASC");
                     
-if($rows === false) {
-    $error = db_error();
-}
+
 if(!empty($rows)){    
 echo "<table>
       <thead{vertical-align: left}>
@@ -15,7 +35,7 @@ echo "<table>
             <th>Rented By</th>
             <th>Equipment Type</th>
             <th>Return Date</th>
-            <th></th>
+            
         </tr>
       </thead>";
 foreach($rows as $value) {
@@ -30,3 +50,4 @@ echo "</table>";
     echo "Currently No Equipment Rented Out";
 }
 ?>
+</html>

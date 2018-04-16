@@ -1,11 +1,24 @@
 <?php
 // Initialize the session
 session_start();
- 
+include 'db_functions.php';
 // If session variable is not set it will redirect to login page
 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   header("location: MedPASS_Welcome.php");
   exit;
+}
+
+$rows = db_select("SELECT * FROM medical_practitioner WHERE Employee_ID ='".$_SESSION['id']."'");
+
+foreach($rows as $value){
+   $eid = $value['Employee_ID'];
+   $fname = $value['FName'];
+   $lname = $value['LName'];
+   $phone = $value['Phone'];
+   $email = $value['Email'];
+   $address = $value['Address'];
+   $pos = $value['Specialization'];
+   $pw = $value['PASSWORD'];
 }
 ?>
 <!DOCTYPE html>
@@ -50,25 +63,25 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
         
         <form  method="POST" action="editPractitioner.php"> <!DATABASE TODO>
         <label for="password">Password:</label>
-		<input type="text" id="password" name="password" placeholder="Password">
+		<input type="text" id="password" name="password" placeholder="***Password***">
 		<br>
         <label for="fname">First Name:</label>
-		<input type="text" id="fname" name="firstname" placeholder="Your first name..">
+		<input type="text" id="fname" name="firstname" placeholder="<?php echo $fname;?>">
 		<br>
 		<label for="lname">Last Name:</label>
-		<input type="text" id="lname" name="lastname" placeholder="Your last name..">
+		<input type="text" id="lname" name="lastname" placeholder="<?php echo $lname;?>">
 		<br>
 		<label for="addre">Address:</label>
-		<input type="text" id="addr" name="address" placeholder="Your address..">
+		<input type="text" id="addr" name="address" placeholder="<?php echo $address;?>">
 		<br>
 		<label for="phonum">Phone Number:</label>
-		<input type="text" id="phonum" name="phonenumber" placeholder="Your phone number..">
+		<input type="text" id="phonum" name="phonenumber" placeholder="<?php echo $phone;?>">
 		<br>
 		<label for="mail">Email:</label>
-		<input type="text" id="mail" name="email" placeholder="Your email..">
+		<input type="text" id="mail" name="email" placeholder="<?php echo $email;?>">
 		<br>
 		<label for="specialization">Specialization:</label>
-		<input type="text" id="specialization" name="specialization" placeholder="Your specialization..">
+		<input type="text" id="specialization" name="specialization" placeholder="<?php echo $pos;?>">
 		<br>
 	  <input type="submit" name="submit" value="Submit Edit Info"></a>
       </form>

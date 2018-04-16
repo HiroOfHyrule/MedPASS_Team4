@@ -2,61 +2,55 @@
 
 // Initialize the session
 session_start();
+include 'db_functions.php';
  
 // If session variable is not set it will redirect to login page
 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   header("location: MedPASS_Welcome.php");
   exit();
 }
-include 'config.php';
+
 if (isset($_POST['search'])) { 
     $_SESSION['curEID'] = $_POST['employeeID'];
 	$_SESSION['role'] = $_POST['role'];
 }	
 	
-	if($_SESSION['role'] = 'doc'){ 
+	if($_SESSION['role'] == 'doc'){ 
 	
-		$sql = "SELECT * FROM medical_practitioner WHERE Employee_ID = '".$_SESSION['curEID']."'";
+		$sql = "SELECT * FROM medical_practitioner WHERE Employee_ID = '".$_SESSION[curEID]."'";
 		
-		$result = mysqli_query($link, $sql);
-		if(!$result) {
-		echo "Error: " . $sql . "<br>" . mysqli_error($link);
-		}
+		$row = db_select($sql);
 
-		while ($row = mysqli_fetch_array($result)) {
-		$eid = $row["Employee_ID"];
-		$firstname = $row["FName"];
-		$lastname = $row["LName"];
+		foreach($row as $value) {
+		$eid = $value["Employee_ID"];
+		$firstname = $value["FName"];
+		$lastname = $value["LName"];
 		
-		$phone = $row["Phone"];
-		$address = $row["Address"];
-		$email = $row["Email"];
-		$specPos = $row['Specialization'];
+		$phone = $value["Phone"];
+		$address = $value["Address"];
+		$email = $value["Email"];
+		$specPos = $value['Specialization'];
 		} 
-		mysqli_close($link);
+		db_close();
 	} else {
 		$sql = "SELECT * FROM administrative_staff WHERE Employee_ID = '".$_SESSION['curEID']."'";
+		$row = db_select($sql);
+        
+		foreach($row as $value) {
+		$eid = $value["Employee_ID"];
+		$firstname = $value["FName"];
+		$lastname = $value["LName"];
 		
-		$result = mysqli_query($link, $sql);
-		if(!$result) {
-		echo "Error: " . $sql . "<br>" . mysqli_error($link);
-		}
-
-		while ($row = mysqli_fetch_array($result)) {
-		$eid = $row["Employee_ID"];
-		$firstname = $row["FName"];
-		$lastname = $row["LName"];
+		$phone = $value["Phone"];
 		
-		$phone = $row["Phone"];
-		
-		$email = $row["Email"];
-		$specPos = $row['Admin_Position'];
+		$email = $value["Email"];
+		$specPos = $value['Admin_Position'];
 		} 
-		mysqli_close($link);
+		db_close();
 		
 	}
 ?>
-?>
+
 <!DOCTYPE html>
 <html>
 
@@ -95,12 +89,11 @@ if (isset($_POST['search'])) {
     <div class="container contentSubPage">
       <p>
       
-      <!DATABASE TODO>
-      
+     
       Employee ID:  <?php echo $eid;?> <br>
 	  First Name:   <?php echo $firstname;?><br>
 	  Last Name:   <?php echo $lastname;?><br>
-	  Address:     <?php echo $address;?><br>
+	  Address:     <?php echo ((!empty($address)) ? $address : "Not Applicable");?><br>
 	  Phone Number:    <?php echo $phone;?><br>
 	  Email:    <?php echo $email;?><br>
       Specialization or Position: <?php echo $specPos;?><span style="padding: 0 40px">&nbsp;</span>    <br>

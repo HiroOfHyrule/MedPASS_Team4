@@ -277,7 +277,7 @@ input[type=submit]:hover {
     background-color: #a53051;
 }
 
-th {
+/* th {
 	height: 30px;
 	text-align:center;
 	font-weight:700;
@@ -286,24 +286,24 @@ th {
 
 td {
 	height:100px;
-}
+} */
 
-td:hover {
+/* td:hover {
 	background-color: #d3d3d3;
 	cursor: pointer;
-}
+} */
 
 .today {
 	background:#a53051;
 	color: #fff;
 }
 
-th:nth-of-type(7),td:nth-of-type(7) {
+/* th:nth-of-type(7),td:nth-of-type(7) {
 	color:blue;
 }
 th:nth-of-type(1),td:nth-of-type(1) {
 	color:red;
-}
+} */
 
 
 
@@ -343,3 +343,28 @@ th:nth-of-type(1),td:nth-of-type(1) {
     box-shadow: 3px 3px 2px #ccc;
     transition: 0.5s;
     }
+table{
+  border-collapse: collapse;
+  width: 80%;
+ 
+}
+table, td, th, tr {
+ border: 1px solid black;
+ padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+tr:hover {background-color: #ddd;}
+
+th {
+ padding-top: 5px;
+ padding-bottom: 5px;
+ text-align: left;
+ background-color: #a53051;
+ color: white;
+}
+tr {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+}

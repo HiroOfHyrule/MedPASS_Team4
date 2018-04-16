@@ -50,7 +50,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
         <label><input type="radio" name="role" value="admin"> Admin</label>
 			<br>
         <label for="empID">Enter Employee ID:</label>
-		<input type="text" id="empID" name="employeeID" placeholder="Employee ID..">
+		<input type="text" id="empID" name="employeeID" placeholder="Employee ID.." required>
 		<br>
 	    <input type="submit" name="search" value="View Employee Information"></a>
         </form>

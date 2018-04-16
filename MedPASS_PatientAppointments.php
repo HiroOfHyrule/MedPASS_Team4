@@ -2,11 +2,15 @@
 
 // Initialize the session
 session_start();
+include('db_functions.php');
  
 // If session variable is not set it will redirect to login page
 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   header("location: MedPASS_Welcome.php");
   exit;
+}
+if(!empty($_POST['bookAPP'])){
+        echo "LOL";
 }
 
 ?>
@@ -203,8 +207,8 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
 	<div class="container contentSubPage">
       <p>
 	   <?php
-
-    include 'config.php';
+/* 
+    
     $sql = "SELECT a.Date, a.Time, p.LName FROM appointment as a, medical_practitioner as p 
 	WHERE PID='".$_SESSION['id']."' AND p.Employee_ID=a.Prac_ID";
 
@@ -220,7 +224,7 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
     echo "Dr ".$lname." at ".$time." on ".$date;
     echo"<br>";
     } 
-    mysqli_close($link);
+    mysqli_close($link); */
     
 ?>
 	 <br>
@@ -229,12 +233,13 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
     </div>
 	
 	<div id="book-appt" class="container contentSubPage" >
-		<form method="POST" action="addAppointment.php">
+    <?php include 'hopeful.php'; ?>
+	<!--	<form method="POST" action="addAppointment.php">
 			
 			<label for="drname">Doctor's name:</label>
             <?php
-            include 'config.php';
-            $query = "SELECT LName, Employee_ID FROM medical_practitioner";
+            
+            /* $query = "SELECT LName, Employee_ID FROM medical_practitioner";
             $result = mysqli_query($link,$query);
             if(!$result) {
                 echo "Error: " . $query . "<br>" . mysqli_error($link);
@@ -245,7 +250,7 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
                 echo "<option value='".$row['Employee_ID']."'>Dr ".$row['LName']."</option>";
             }
             echo "</select>";
-            mysqli_close($link);
+            mysqli_close($link); */
             ?>
 			
 			
@@ -266,8 +271,9 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
 				
 				<a><input id="book-appt" type="submit" name="submit" value="Book This Appointment" style="width:300px;"></a>
 			</div>
-		</form>
+		</form>-->
 	  
+
      
 	</div>
 	

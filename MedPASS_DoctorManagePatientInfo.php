@@ -1,24 +1,21 @@
 <?php
 // Initialize the session
 session_start();
- 
+include 'db_functions.php'; 
 // If session variable is not set it will redirect to login page
 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   header("location: MedPASS_Welcome.php");
   exit;
 }
-include 'config.php';
+
 if (isset($_POST['submit'])) { 
     $_SESSION['curPID'] = $_POST['patientID'];
 }
     $sql = "SELECT * FROM patient WHERE Patient_ID = '".$_SESSION['curPID']."'";
     
-    $result = mysqli_query($link, $sql);
-    if(!$result) {
-    echo "Error: " . $sql . "<br>" . mysqli_error($link);
-    }
+   $rows = db_select($sql);
 
-    while ($row = mysqli_fetch_array($result)) {
+    foreach($rows as $row) {
     $pid = $row["Patient_ID"];
     $firstname = $row["FName"];
     $lastname = $row["LName"];
@@ -28,7 +25,7 @@ if (isset($_POST['submit'])) {
     $address = $row["Address"];
     $email = $row["Email"];
     } 
-    mysqli_close($link);
+    db_close();
 
 ?>
 <!DOCTYPE html>
@@ -80,58 +77,51 @@ if (isset($_POST['submit'])) {
 	  Email: <?php echo $email;?><br>
 	  <br>
       Rented Equipment:<?php 
-                include 'config.php';
+               
                 $sql = "SELECT e.Equipment_Type FROM patient AS p, assistance_equipment AS e, rents AS r
                 WHERE p.Patient_ID = '".$pid."' AND p.Patient_ID = r.PID AND
                 r.Equip_ID = e.Equip_ID";
-                $result = mysqli_query($link, $sql);
-                if(!$result) {
-                echo "Error: " . $sql . "<br>" . mysqli_error($link);
-                }
+                $result = db_select($sql);
                 $str ="    ";
-                while ($row = mysqli_fetch_array($result)) {
+                foreach($result as $row) {
                 $eType = $row['Equipment_Type'];
                 
                 $str.= $eType.",";
                 }
                 $str = substr($str,0,-1);
                 echo $str;
-                mysqli_close($link);
+                db_close();
                 ?> <br>
       <br>
       Diagnosed Illnesses: <?php 
-                include 'config.php';
+               
                 $sql = "SELECT Illness_Name FROM affects WHERE PID = '".$pid."'";
-                $result = mysqli_query($link, $sql);
-                if(!$result) {
-                echo "Error: " . $sql . "<br>" . mysqli_error($link);
-                }
+                $result = db_select($sql);
+                
                 $str ="    ";
-                while ($row = mysqli_fetch_array($result)) {
+                foreach($result as $row) {
                 $ill = $row['Illness_Name'];
                 
                 $str.= " ".$ill.",";
                 }
                 $str = substr($str,0,-1);
                 echo $str;
-                mysqli_close($link);
+                db_close();
                 ?><br>
 	  Treatments:  <?php 
-                include 'config.php';
+                
                 $sql = "SELECT treatmentName FROM treating WHERE PID = '".$pid."'";
-                $result = mysqli_query($link, $sql);
-                if(!$result) {
-                echo "Error: " . $sql . "<br>" . mysqli_error($link);
-                }
+                $result = db_select($sql);
+                
                 $str ="    ";
-                while ($row = mysqli_fetch_array($result)) {
+                foreach($result as $row) {
                 $treat = " ".$row['treatmentName'];
                 
                 $str.= $treat.",";
                 }
                 $str = substr($str,0,-1);
                 echo $str;
-                mysqli_close($link);
+                db_close();
                 ?><br>  
 	  </p>
       <a href="MedPASS_DoctorAddDiagnosis.php"><input type="submit" value="Assign Diagnosis"></a>

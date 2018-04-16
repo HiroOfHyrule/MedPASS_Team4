@@ -46,7 +46,9 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   <section id"content">
     <div class="container contentSubPage">
       <p>
+      
       <form  method="POST" action="MedPASS_AdminManagePatientInfo.php"> <!DATABASE TODO>
+        
         <label for="fname">Enter Patient's First Name:</label>
 		<input type="text" id="fname" name="firstname" placeholder="First Name..">
 		<br>
@@ -65,6 +67,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
       </p>
 
     </div>
+
   </section>
   
   <footer>

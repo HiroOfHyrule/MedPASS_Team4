@@ -1,4 +1,6 @@
 <?php
+session_start();
+include 'db_functions.php';
 // Set timezone
 date_default_timezone_set('Canada/Mountain');
  
@@ -168,6 +170,35 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
 
 	<div class="container contentSubPage">
       <p>
+      <?php
+        
+
+    $search = "SELECT p.FName AS PFName, p.LName AS PLName, m.LName AS MLName, a.Date, a.Time, a.App_No FROM appointment AS a, medical_practitioner AS m, patient AS p 
+        WHERE a.PID=p.Patient_ID AND a.Prac_ID = m.Employee_ID AND a.App_No IS NOT NULL ORDER BY Date, Time";
+    $rows = db_select($search);
+    echo "<table class=\"table\">
+      <thead{vertical-align: left}>
+        <tr>
+            <th>Patient</th>
+            <th>Doctor</th>
+            <th>Appointment Number</th>
+            <th>Date</th>
+            <th>Time</th>
+            
+        </tr>
+      </thead>";
+foreach($rows as $value) {
+    echo "<tr>";
+    echo "<td>".$value['PFName']." ".$value['PLName']."</td>";
+    echo "<td>Dr ".$value['MLName']."</td>";
+    echo "<td>".$value['App_No']."</td>";
+    echo "<td>".$value['Date']."</td>";
+    echo "<td>".$value['Time']."</td>";
+    echo "</tr>";
+}
+echo "</table>";
+
+?>
 	  There are no booked appointments.<br>
       </p>
     </div>

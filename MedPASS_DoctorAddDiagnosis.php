@@ -1,7 +1,7 @@
 <?php
 // Initialize the session
 session_start();
- 
+include 'db_functions.php';
 // If session variable is not set it will redirect to login page
 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   header("location: MedPASS_Welcome.php");
@@ -46,11 +46,19 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
     <div class="container contentSubPage">
       <p>
       <form  method="POST" action="addDiag.php"> 
-		<label for="diag">Illness Name:</label><br>
-		<input type="text" id="diag" name="diagnosis" placeholder="Illness Name..">
-		<br>
-
-	  <input type="submit" name="submit" value="Submit Diagnosis"></a>
+		<select id="diagnosis" name="diagnosis">
+    <option value="">Select Diagnosis</option>
+    <?php
+    $sql = "SELECT * FROM illness";
+    $row = db_select($sql);
+    foreach($row as $value){
+        echo "<option value=".$value['Illness_Name'].">".$value['Illness_Name']."</option>";
+        
+    }
+    ?>
+    </select>
+    <br>
+	  <input type="submit" id="submit" name="submit" value="Add Diagnosis"></a>
       </form>
       </p>
 

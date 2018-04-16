@@ -44,6 +44,19 @@ function db_quote($value) {
 function db_close() {
     mysqli_close(db_connect());
 }
+
+// Returns True is username is free
+function db_usernameCheck($user) {
+    $query = "SELECT Username FROM administrative_staff WHERE Username = '".$user."' 
+        UNION SELECT Username FROM patient WHERE Username = '".$user."' 
+        UNION SELECT Username FROM medical_practitioner WHERE Username = '".$user."'";
+    $result = db_query($query);
+    if(mysqli_num_rows($reult) >=1){
+        return false;
+    } else {
+        return true;
+    }
+}
 /**
 // *********EXAMPLE OF ABOVE************
 // Quote and escape form submitted values

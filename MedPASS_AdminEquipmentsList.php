@@ -74,7 +74,7 @@ echo "<table class=\"table\">
             <th>Rented By</th>
             <th>Equipment Type</th>
             <th>Return Date</th>
-            <th></th>
+            
         </tr>
       </thead>";
 foreach($rows as $value) {

@@ -1,3 +1,13 @@
+<?php
+// Initialize the session
+session_start();
+include 'db_functions.php'; 
+// If session variable is not set it will redirect to login page
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  header("location: MedPASS_Welcome.php");
+  exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 

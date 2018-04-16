@@ -2,7 +2,7 @@
 
 // Initialize the session
 session_start();
- 
+include 'db_functions.php'; 
 // If session variable is not set it will redirect to login page
 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   header("location: MedPASS_Welcome.php");
@@ -59,19 +59,50 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
  <section id="content">
     <div class="container contentSubPage" align="center">
       <p>
-		<form>
-			<label for="PFname">Practitioner Full Name:</label>
-			<input type="text" id="PFname" name="pracFname" placeholder="First name..">
-			<input type="text" id="PLname" name="pracLname" placeholder="Last name..">
+		<form method="POST" action="">
+				  <select id="doc" name="doc">
+    <option value="">Select Doctor</option>
+    <?php
+    $sql = "SELECT * FROM medical_practitioner ";
+    $row = db_select($sql);
+    foreach($row as $value){
+        echo '<option value="'.$value['Employee_ID'].'">Dr '.$value['FName'].' '.$value['LName'].'</option>';
+    }
+    ?>
+    <input type="submit" id="search" name="search" value="View Practitioner's Schedule">
 		</form>
-	    <a onclick="toggle_practitionerList();"><input type="submit" value="View Practitioner's Schedule"></a>
+	    
     
       </p>
-	</div>
-    <div id="practitioner-list"  class="container" style="display: none;">
-		<!-- Replace this with list of practitioner ID's -->
-		<!-- Each element goes to MedPASS_AdminPractitionerSched.php when clicked -->
-		<p style="font-size:20px;">&#9888; Could not find practitioner with that name.</p>
+	
+    
+		<?php
+        
+if(isset($_POST['search'])){
+    $search = "SELECT * FROM schedule WHERE Employee_ID='".$_POST['doc']."'";
+    $rows = db_select($search);
+    echo "<table class=\"table\">
+      <thead{vertical-align: left}>
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Appointment Booked</th>
+            
+        </tr>
+      </thead>";
+foreach($rows as $value) {
+    echo "<tr>";
+    echo "<td>".$value['Date']."</td>";
+    echo "<td>".$value['Time']."</td>";
+    echo "<td>".(($value['App_No']==NULL)?"No":"Yes")."</td>";
+    echo "</tr>";
+}
+echo "</table>";
+}
+?>
+        
+       
+		
 	
 	</div>
 	

@@ -6,8 +6,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   header("location: MedPASS_Welcome.php");
   exit;
 }
-?>
-<?php
+
     if (isset($_POST['submit'])) {
         $fname = $_POST['firstname'];
         $lname = $_POST['lastname'];
@@ -18,16 +17,19 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
         $specORpos = $_POST['specialization'];
         $regNo = $_POST['regNo'];
         $role = $_POST['role'];
-        $username = $_POST['username'];
+        
+        $user = $_POST['username'];
+        
         $passhash = password_hash($_POST['password'], PASSWORD_DEFAULT);
         if ($role == 'doc') {
-            addPractitioner($fname, $lname, $specORpos, $phone, $address, $email, $regNo, $username, $passhash);
+            addPractitioner($fname, $lname, $specORpos, $phone, $address, $email, $regNo, $user, $passhash);
         } else{
-            addAdmin($fname, $lname, $email, $phone, $specORpos, $username, $passhash);
+            addAdmin($fname, $lname, $email, $phone, $specORpos, $user, $passhash);
         }
         
         header('Location: MedPASS_AdminViewEmpInfo.php');
         exit();
+       
     }
 ?>
 <!DOCTYPE html>
@@ -74,31 +76,31 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
       
 		<br>
         <label for="fname">First Name:</label>
-		<input type="text" id="fname" name="firstname" placeholder="...">
+		<input type="text" id="fname" name="firstname" placeholder="..." required>
 		<br>
 		<label for="lname">Last Name:</label>
-		<input type="text" id="lname" name="lastname" placeholder="...">
+		<input type="text" id="lname" name="lastname" placeholder="..."required>
 		<br>
 		<label for="addr">Address:</label>
-		<input type="text" id="addr" name="address" placeholder="...">
+		<input type="text" id="addr" name="address" placeholder="Only For Practitioner">
 		<br>
 		<label for="phonum">Phone Number:</label>
-		<input type="text" id="phonum" name="phonenumber" placeholder="...">
+		<input type="text" id="phonum" name="phonenumber" placeholder="..."required>
 		<br>
 		<label for="mail">Email:</label>
-		<input type="text" id="mail" name="email" placeholder="...">
+		<input type="email" id="mail" name="email" placeholder="..." >
 		<br>
 		<label for="specialization">Specialization or Position:</label>
-		<input type="text" id="specialization" name="specialization" placeholder="...">
+		<input type="text" id="specialization" name="specialization" placeholder="..."required>
 		<br>
         <label for="specialization">Registration Number:</label>
 		<input type="text" id="regNo" name="regNo" placeholder="Only for Practitioner">
 		<br>
         <label for="username">Username:</label>
-		<input type="text" id="username" name="username" placeholder="Username">
+		<input type="text" id="username" name="username" placeholder="Username"required>
 		<br>
         <label for="password">Password:</label>
-		<input type="text" id="password" name="password" placeholder="Password">
+		<input type="text" id="password" name="password" placeholder="Password" pattern=".{6,}" title="Password must be at least 6 characters long" required>
 		<br>
         <input type="submit" name="submit" value="Add Employee"></a>
       </p>
