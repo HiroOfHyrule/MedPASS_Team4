@@ -14,6 +14,7 @@ function db_select($query) {
     while ($row = mysqli_fetch_assoc($result)) {
         $rows[] = $row;
     }
+    db_close();
     return $rows;
 }
 
@@ -40,6 +41,9 @@ function db_quote($value) {
     return "'" . mysqli_real_escape_string($connection,$value) . "'";
 }
 
+function db_close() {
+    mysqli_close(db_connect());
+}
 /**
 // *********EXAMPLE OF ABOVE************
 // Quote and escape form submitted values

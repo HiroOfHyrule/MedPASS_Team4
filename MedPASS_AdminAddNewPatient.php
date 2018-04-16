@@ -18,8 +18,8 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
         $user = $_POST['user'];
         $passhash = password_hash($_POST['pw'], PASSWORD_DEFAULT);
         addPatient($fname,$lname,$dob,$sex,$phone,$address,$email,$user,$passhash);
-        //header('Location: MedPASS_AdminViewPatientInfo.php');
-        //exit();
+        header('Location: MedPASS_AdminViewPatientInfo.php');
+        exit();
     }
 ?>
 <!DOCTYPE html>

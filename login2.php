@@ -2,16 +2,16 @@
     include 'config.php';
     session_start();
 
-    $username = $password = $logErr = "";
+    $user = $pw = $logErr = "";
     if (!$link) {
             die("Connection failed: " . mysqli_connect_error());
     }
     if(isset($_POST['submit'])) {
         $role = $_SESSION['role'];
-        if($role == Patient) {
+        if($role == 'Patient') {
             $idvalue = "Patient_ID";
             $table = "patient";
-        } elseif($role == Admin){
+        } elseif($role == 'Admin'){
             $idvalue = "Employee_ID";
             $table = "administrative_staff";
         } else{
@@ -19,31 +19,34 @@
             $table = "medical_practitioner";
         }
         
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+        $user = $_POST['username'];
+        $pw = $_POST['password'];
         
-        $query = "SELECT Password, ".$idvalue." FROM $table WHERE Username ='".$username."'";
+        $query = "SELECT PASSWORD, ".$idvalue." FROM ".$table." WHERE Username ='".$user."'";
         $result = mysqli_query($link, $query);
         if(!$result) {
             echo "Error: " .$query . "<br>" . mysqli_error($link);
         }
         
         while ($row = mysqli_fetch_array($result)) {
-            $passhash = $row["Password"];
+            $passhash = $row['PASSWORD'];
+            echo "<br>".$passhash."<br>";
+            $lol = password_hash($pw, PASSWORD_DEFAULT);
+            echo "<br>".$lol."<br>";
             $id = $row[$idvalue];
         }
         mysqli_close($link);
         if(empty($row)){
-            $logErr= "Username or Password is Invalid.";
+            echo "Username or Password is Invalid.";
             header('Location: MedPASS_'.$role.'Login.php');            
         }
-        if(password_verify($password, $passhash)) {
-            $_SESSION['username'] = $username;
+        if(password_verify($pw, $passhash)) {
+            $_SESSION['username'] = $user;
             $_SESSION['id'] = $id;
             
             header('Location: MedPASS_'.$role.'Home.php');
         } else {
-            $logErr = "Username or Password is Invalid.";
+            echo "Username or Password is Invalid.";
              header('Location: MedPASS_'.$role.'Login.php'); 
         }
         

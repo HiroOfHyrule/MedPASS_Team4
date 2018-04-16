@@ -1,3 +1,25 @@
+<?php
+
+// Initialize the session
+session_start();
+include 'db_functions.php';
+// If session variable is not set it will redirect to login page
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  header("location: MedPASS_Welcome.php");
+  exit;
+}
+$rows = db_select("SELECT * FROM administrative_staff WHERE Employee_ID ='".$_SESSION['id']."'");
+
+foreach($rows as $value){
+   $eid = $value['Employee_ID'];
+   $fname = $value['FName'];
+   $lname = $value['LName'];
+   $phone = $value['Phone'];
+   $email = $value['Email'];
+   $pos = $value['Admin_Position'];
+}
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -19,7 +41,7 @@
           <ul>
             <li><a href="MedPASS_AdminHome.php">Home</a></li>
 			<li><a href="MedPASS_AdminInfo.php">Back</a></li>
-			<li><a href="MedPASS_Welcome.php">Logout</a></li>
+			<li><a href="logout.php">Logout</a></li>
           </ul>
         </div>
       </nav>
@@ -35,29 +57,30 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
-      <form  method="POST" action="MedPASS_AdminInfo.php"> <!DATABASE TODO>
+      <form  method="POST" action="editAdmin.php">
 		<label for="empID">Employee ID:</label>
-		<input type="text" id="empID" name="employeeID" placeholder="Your employee ID..">
+		<?php echo $eid;?>
 		<br>
         <label for="fname">First Name:</label>
-		<input type="text" id="fname" name="firstname" placeholder="Your first name..">
+		<input type="text" id="fname" name="firstname" placeholder="<?php echo$fname;?>">
 		<br>
 		<label for="lname">Last Name:</label>
-		<input type="text" id="lname" name="lastname" placeholder="Your last name..">
-		<br>
-		<label for="addr">Address:</label>
-		<input type="text" id="addr" name="address" placeholder="Your address..">
+		<input type="text" id="lname" name="lastname" placeholder="<?php echo$lname;?>">
 		<br>
 		<label for="phonum">Phone Number:</label>
-		<input type="text" id="phonum" name="phonenumber" placeholder="Your phone number..">
+		<input type="text" id="phonum" name="phonenumber" placeholder="<?php echo$phone;?>">
 		<br>
 		<label for="mail">Email:</label>
-		<input type="text" id="mail" name="email" placeholder="Your email..">
+		<input type="text" id="mail" name="email" placeholder="<?php echo$email;?>">
 		<br>
 		<label for="pos">Position:</label>
-		<input type="text" id="pos" name="position" placeholder="Your position..">
+		<input type="text" id="pos" name="position" placeholder="<?php echo$pos;?>">
 		<br>
-	  <a href="MedPASS_AdminInfo.php"><input type="submit" value="Submit Edit Info"></a>
+        <label for="pw">Password:</label>
+		<input type="text" id="pw" name="pw" placeholder="***New Password***">
+		<br>
+        
+	  <input type="submit" name="submit" value="Submit Edit Info">
       </form>
       </p>
 

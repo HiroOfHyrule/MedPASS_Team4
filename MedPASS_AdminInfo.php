@@ -1,3 +1,16 @@
+<?php
+
+// Initialize the session
+session_start();
+include 'db_functions.php';
+// If session variable is not set it will redirect to login page
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  header("location: MedPASS_Welcome.php");
+  exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -18,7 +31,7 @@
         <div class="menu">
           <ul>
             <li><a href="MedPASS_AdminHome.php">Home</a></li>
-			<li><a href="MedPASS_Welcome.php">Logout</a></li>
+			<li><a href="logout.php">Logout</a></li>
           </ul>
         </div>
       </nav>
@@ -34,16 +47,18 @@
   <section id"content">
     <div class="container contentSubPage">
       <p>
-      
-      <!DATABASE TODO>
-      
-      Employee ID: <br>
-	  First Name: <br>
-	  Last Name: <br>
-	  Address: <br>
-	  Phone Number: <br>
-	  Email: <br>
-      Position: <br>
+      <?php
+      $rows = db_select("SELECT * FROM administrative_staff WHERE Employee_ID ='".$_SESSION['id']."'");
+      foreach($rows as $value){
+       echo   "Employee ID: ".$value['Employee_ID']."<br>";
+       echo   "First Name: ".$value['FName']."<br>";
+       echo   "Last Name: ".$value['LName']."<br>";
+       
+       echo   "Phone Number: ".$value['Phone']."<br>";
+       echo   "Email: ".$value['Email']."<br>";
+       echo   "Position: ".$value['Admin_Position']."<br>";
+      }
+      ?>
 	  <a href="MedPASS_AdminInfoEdit.php"><input type="submit" value="Edit Info"></a>
       </p>
 

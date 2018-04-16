@@ -1,3 +1,15 @@
+<?php
+
+// Initialize the session
+session_start();
+include 'db_functions.php';
+// If session variable is not set it will redirect to login page
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  header("location: MedPASS_Welcome.php");
+  exit;
+}
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -49,12 +61,34 @@
  <section id="content">
     <div class="row contentSubPage">
 		<div id="mainContent" class="column" >
-			<h3>Rented Equipments</h3>
+			<h3>Rented Equipment</h3>
 				<!-- Insert list of rented equipments -->
-				<p>Insert equipments list here.</p>
+				<p><?php
+$rows = db_select("SELECT p.FName, p.LName, E.Equipment_Type, R.Return_Date 
+                FROM patient as p, assistance_equipment as E, rents as R 
+                    WHERE R.PID=p.Patient_ID AND R.Equip_ID=E.Equip_ID 
+                    ORDER BY R.Return_Date");
+echo "<table class=\"table\">
+      <thead{vertical-align: left}>
+        <tr>
+            <th>Rented By</th>
+            <th>Equipment Type</th>
+            <th>Return Date</th>
+            <th></th>
+        </tr>
+      </thead>";
+foreach($rows as $value) {
+    echo "<tr>";
+    echo "<td>".$value['FName']." ".$value['LName']."</td>";
+    echo "<td>".$value['Equipment_Type']."</td>";
+    echo "<td>".$value['Return_Date']."</td>";
+    echo "</tr>";
+}
+echo "</table>";
+?></p>
 		</div>
 		<div id="sideBar" class="column" >
-			<h3>Available Equipments</h3>
+			<h3>Available Equipment</h3>
 				<!-- Insert list of all avail equipments -->
 				<p>Insert equipments list here.</p>
 				<a onclick="toggle_add_equip()"><input type="submit" value="Add new equipment" style="width:50%;"></a>

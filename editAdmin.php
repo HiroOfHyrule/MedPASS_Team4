@@ -1,8 +1,17 @@
 <?php
-include 'config.php';
-    if (!$link) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
+
+
+// Initialize the session
+session_start();
+
+// If session variable is not set it will redirect to login page
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  header("location: MedPASS_Welcome.php");
+  exit;
+}
+
+include 'db_functions.php';
+    
     if (isset($_POST['submit'])) { 
         $query="UPDATE administrative_staff SET";
         if (!empty($_POST['firstname']))
@@ -25,14 +34,23 @@ include 'config.php';
             {
             $query.=" Admin_Position='" .$_POST['pos']."',";
             }
+        if (!empty($_POST['pw']))
+            {
+            $passhash = password_hash($_POST['pw'], PASSWORD_DEFAULT);
+            $query.=" Password='" .$passhash."',";
+            }
         $query = substr($query,0,-1);
-        $query.=" WHERE Employee_ID ='".$_POST['eid']."'";
-        if (!mysqli_query($link, $query)) {
-            echo "Error updating record: " . mysqli_error($link);
+        $query.=" WHERE Employee_ID ='".$_SESSION['id']."'";
+        $result = db_query($query);
+        if(!$result){
+            mysqli_error($result);
         }
+        //header("Location: MedPASS_AdminInfo.php");
+        //exit();
+        
     }
     
-    mysqli_close();
+   db_close();
 
 
 ?>
