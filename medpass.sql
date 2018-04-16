@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 12, 2018 at 02:11 PM
+-- Generation Time: Apr 16, 2018 at 03:27 PM
 -- Server version: 5.7.19
--- PHP Version: 5.6.31
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -40,14 +40,15 @@ CREATE TABLE IF NOT EXISTS `administrative_staff` (
   `PASSWORD` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`Employee_ID`),
   UNIQUE KEY `Username` (`Username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `administrative_staff`
 --
 
 INSERT INTO `administrative_staff` (`Employee_ID`, `FName`, `LName`, `Email`, `Phone`, `Admin_Position`, `Username`, `PASSWORD`) VALUES
-(1, 'Professor', 'Oak', 'oak@pokemon.ca', '4037653666', 'Leader', 'ProfOak', '$2y$10$CBN2TzpESj5kAyoYbARkMO70YmxN72cclh7CxDF7TkYaCVZW3IlEy');
+(1, 'Professor', 'Oak', 'oak@pokemon.org', '4037653666', 'Admin', 'ProfOak', '$2y$10$CBN2TzpESj5kAyoYbARkMO70YmxN72cclh7CxDF7TkYaCVZW3IlEy'),
+(2, 'Giovanni', 'BossMan', 'teamrocket@rocket.ca', '4031112222', 'Boss', 'giovanni', '$2y$10$WIp5iORWkWf7ZlkDJl1/muyVU6tMcGIP2bPDF3hxltf3P69vu0FPW');
 
 -- --------------------------------------------------------
 
@@ -86,14 +87,19 @@ CREATE TABLE IF NOT EXISTS `appointment` (
   PRIMARY KEY (`App_No`),
   KEY `PID` (`PID`),
   KEY `Prac_ID` (`Prac_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `appointment`
 --
 
 INSERT INTO `appointment` (`App_No`, `Date`, `Time`, `PID`, `Prac_ID`) VALUES
-(1, '2018-04-23', '10:00:00', 1, 3);
+(1, '2018-04-23', '10:00:00', 1, 3),
+(2, '2018-04-19', '11:00:00', 1, 3),
+(3, '2018-04-26', '10:00:00', 1, 3),
+(4, '2018-04-20', '12:00:00', 1, 4),
+(5, '2018-04-19', '12:00:00', 1, 4),
+(6, '2018-04-19', '13:00:00', 1, 4);
 
 -- --------------------------------------------------------
 
@@ -163,6 +169,7 @@ CREATE TABLE IF NOT EXISTS `illness` (
 --
 
 INSERT INTO `illness` (`Illness_Name`, `Cause`, `Symptom`) VALUES
+('Alzheimers', 'Old Age', 'Forgetfulness'),
 ('Depression', 'Rejection', 'Sad');
 
 -- --------------------------------------------------------
@@ -209,14 +216,15 @@ CREATE TABLE IF NOT EXISTS `medical_practitioner` (
   PRIMARY KEY (`Employee_ID`),
   UNIQUE KEY `Reg_No` (`Reg_No`),
   UNIQUE KEY `Username` (`Username`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `medical_practitioner`
 --
 
 INSERT INTO `medical_practitioner` (`Employee_ID`, `FName`, `LName`, `Specialization`, `Phone`, `Address`, `Email`, `Reg_No`, `Username`, `PASSWORD`) VALUES
-(3, 'Ash', 'Ketchum', 'Trainer', '5557452248', 'Pallet Town', 'catchEmAll@yahoo.com', 123, 'ashRocks', '$2y$10$nIClLln0HfQbSFpsCzfZrOp76KX/b3oNLkWoHRyQFWEcd1wWFv9VW');
+(3, 'Ash', 'Ketchum', 'Physio', '5557452248', 'Pallet Town', 'catchEmAll@yahoo.com', 123, 'ashRocks', '$2y$10$nIClLln0HfQbSFpsCzfZrOp76KX/b3oNLkWoHRyQFWEcd1wWFv9VW'),
+(4, 'Joy', 'San', 'Nurse', '4036841478', 'Viridian City', 'pokecenter@world.edu', 50, 'nurseJoy', '$2y$10$WyfcMBxdVkxssNrLZUTTAOdtTbM6w5.wFem.UfLIbQvhoaefoolQO');
 
 -- --------------------------------------------------------
 
@@ -241,7 +249,7 @@ CREATE TABLE IF NOT EXISTS `medical_record` (
 --
 
 INSERT INTO `medical_record` (`PID`, `MR_No`, `Illness_History`, `Treatment_History`, `Family_Med_History`, `Medical_Allergies`, `Notes`) VALUES
-(1, 1, 'Depression', 'Gym', 'Advil Abuse', 'Grass', 'Infatuation with the Nurse');
+(1, 1, 'Depression', 'Gym, Healthy eating', 'Advil Abuse', 'Grass', 'Infatuation with the Nurse');
 
 -- --------------------------------------------------------
 
@@ -263,14 +271,15 @@ CREATE TABLE IF NOT EXISTS `patient` (
   `PASSWORD` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`Patient_ID`),
   UNIQUE KEY `Username` (`Username`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `patient`
 --
 
 INSERT INTO `patient` (`Patient_ID`, `FName`, `LName`, `DOB`, `Sex`, `Phone`, `Address`, `Email`, `Username`, `PASSWORD`) VALUES
-(1, 'Brock', 'TestMan', '1990-04-11', 'M', '1112223333', 'Pewter City, Kanto', 'onyxRules@hotmail.com', 'brockOnyx', '$2y$10$sWw27z6Md1LsGISDxijV4OYpZavNve/f96QVEPx5Synuz8T1ap8GO');
+(1, 'Brock', 'TestMan', '1990-04-11', 'M', '1112223333', 'Pewter City, Kanto', 'onyxRules@hotmail.com', 'brockOnyx', '$2y$10$sWw27z6Md1LsGISDxijV4OYpZavNve/f96QVEPx5Synuz8T1ap8GO'),
+(8, 'Alex', 'Schijns', '1990-02-16', 'M', '4032352692', '96 Simcoe Close S.W.', 'random@email.com', 'alex99', '$2y$10$tOB48A5M/nFxkYxA59qXyuODER.826nD3JGYR20U9sexfhrRd4KPe');
 
 -- --------------------------------------------------------
 
@@ -295,7 +304,8 @@ CREATE TABLE IF NOT EXISTS `rents` (
 --
 
 INSERT INTO `rents` (`PID`, `Equip_ID`, `Prac_ID`, `Start_Date`, `Return_Date`) VALUES
-(1, 88, 3, '2018-04-10', '2018-05-10');
+(1, 88, 3, '2018-04-10', '2018-05-10'),
+(8, 1337, 3, '2018-03-24', '2018-04-25');
 
 -- --------------------------------------------------------
 
@@ -308,7 +318,7 @@ CREATE TABLE IF NOT EXISTS `schedule` (
   `Date` date NOT NULL,
   `Time` time NOT NULL,
   `Employee_ID` int(255) UNSIGNED NOT NULL,
-  `App_No` int(255) UNSIGNED NOT NULL,
+  `App_No` int(255) UNSIGNED DEFAULT NULL,
   PRIMARY KEY (`Date`,`Time`,`Employee_ID`),
   KEY `Employee_ID` (`Employee_ID`),
   KEY `App_No` (`App_No`)
@@ -319,7 +329,30 @@ CREATE TABLE IF NOT EXISTS `schedule` (
 --
 
 INSERT INTO `schedule` (`Date`, `Time`, `Employee_ID`, `App_No`) VALUES
-('2018-04-23', '10:00:00', 3, 1);
+('2018-04-19', '10:00:00', 3, NULL),
+('2018-04-20', '10:00:00', 3, NULL),
+('2018-04-20', '11:00:00', 3, NULL),
+('2018-04-20', '13:00:00', 4, NULL),
+('2018-04-23', '11:00:00', 3, NULL),
+('2018-04-23', '12:00:00', 4, NULL),
+('2018-04-23', '13:00:00', 4, NULL),
+('2018-04-24', '10:00:00', 3, NULL),
+('2018-04-24', '11:00:00', 3, NULL),
+('2018-04-24', '12:00:00', 4, NULL),
+('2018-04-24', '13:00:00', 4, NULL),
+('2018-04-25', '10:00:00', 3, NULL),
+('2018-04-25', '11:00:00', 3, NULL),
+('2018-04-25', '12:00:00', 4, NULL),
+('2018-04-25', '13:00:00', 4, NULL),
+('2018-04-26', '11:00:00', 3, NULL),
+('2018-04-26', '12:00:00', 4, NULL),
+('2018-04-26', '13:00:00', 4, NULL),
+('2018-04-23', '10:00:00', 3, 1),
+('2018-04-19', '11:00:00', 3, 2),
+('2018-04-26', '10:00:00', 3, 3),
+('2018-04-20', '12:00:00', 4, 4),
+('2018-04-19', '12:00:00', 4, 5),
+('2018-04-19', '13:00:00', 4, 6);
 
 -- --------------------------------------------------------
 
