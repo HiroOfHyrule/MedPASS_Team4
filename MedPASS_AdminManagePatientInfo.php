@@ -2,11 +2,15 @@
 
 // Initialize the session
 session_start();
- 
+include 'db_functions.php';
 // If session variable is not set it will redirect to login page
 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   header("location: MedPASS_Welcome.php");
   exit;
+}
+
+if(isset($_POST['view'])) {
+    $_SESSION['curPID'] = $_POST['patientID'];
 }
 ?>
 <!DOCTYPE html>
@@ -30,7 +34,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
           <ul>
             <li><a href="MedPASS_AdminHome.php">Home</a></li>
 			<li><a href="MedPASS_AdminViewPatientInfo.php">Back</a></li>
-			<li><a href="MedPASS_Welcome.php">Logout</a></li>
+			<li><a href="logout.php">Logout</a></li>
           </ul>
         </div>
       </nav>
@@ -47,18 +51,20 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
     <div class="container contentSubPage">
       <p>
       
-      <!DATABASE TODO>
-      
-      Patient ID:    <br>
-	  First Name:   <br>
-	  Last Name:    <br>
-      Birthday: <br>
-      Gender: <br>
-	  Address:      <br>
-	  Phone Number:      <br>
-	  Email:     <br>
-      <br> <br>
-      
+      <?php
+      $rows = db_select("SELECT * FROM `patient` WHERE Patient_ID='".$_SESSION['curPID']."'");
+      foreach($rows as $value) {
+        echo "Patient ID: ".$value['Patient_ID']."<br>";
+        echo "First Name: ".$value['FName']."<br>";
+        echo "Last Name:".$value['LName']."<br>";
+        echo "Birthday: ".$value['DOB']."<br>";
+        echo "Gender: ".$value['Sex']."<br>";
+        echo "Address: ".$value['Address']."<br>";
+        echo "Phone Number: ".$value['Phone']."<br>";
+        echo "Email: ".$value['Email']."<br>";
+        echo "<br>";
+      }
+      ?>
       <a href="MedPASS_AdminEditPatientInfo.php"><input type="submit" value="Edit Patient Info"></a> 
       <br>
       <form  method="POST" action="MedPASS_AdminViewPatientInfo.php"> <!DATABASE TODO>

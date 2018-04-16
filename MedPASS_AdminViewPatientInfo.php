@@ -1,3 +1,15 @@
+<?php
+
+// Initialize the session
+session_start();
+ 
+// If session variable is not set it will redirect to login page
+if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+  header("location: MedPASS_Welcome.php");
+  exit;
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -18,7 +30,7 @@
         <div class="menu">
           <ul>
             <li><a href="MedPASS_AdminHome.php">Home</a></li>
-			<li><a href="MedPASS_Welcome.php">Logout</a></li>
+			<li><a href="logout.php">Logout</a></li>
           </ul>
         </div>
       </nav>
@@ -44,11 +56,11 @@
 		<label for="PID">Enter Patient ID:</label>
 		<input type="text" id="PID" name="patientID" placeholder="Patient ID..">
 		<br>
-	    <a href="MedPASS_AdminManagePatientInfo.php"><input type="submit" value="View Patient Information"></a>
+	    <input type="submit" name="view" value="Search Patient">
         </form>
         <br>
         <form  method="POST" action="MedPASS_AdminAddNewPatient.php"> <!DATABASE TODO>
-        <a href="MedPASS_AdminAddNewPatient.php"><input type="submit" value="Add New Patient"></a>
+        <input type="submit" name="submit" value="Add New Patient">
         </form>
       </p>
 
