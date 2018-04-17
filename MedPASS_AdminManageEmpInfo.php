@@ -17,7 +17,7 @@ if (isset($_POST['search'])) {
 	
 	if($_SESSION['role'] == 'doc'){ 
 	
-		$sql = "SELECT * FROM medical_practitioner WHERE Employee_ID = '".$_SESSION[curEID]."'";
+		$sql = "SELECT * FROM medical_practitioner WHERE Employee_ID = '".$_SESSION['curEID']."'";
 		
 		$row = db_select($sql);
 

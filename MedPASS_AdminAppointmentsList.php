@@ -199,7 +199,7 @@ foreach($rows as $value) {
 echo "</table>";
 
 ?>
-	  There are no booked appointments.<br>
+	 
       </p>
     </div>
 	

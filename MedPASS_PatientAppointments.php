@@ -207,7 +207,7 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
 	<div class="container contentSubPage">
       <p>
 	   <?php
-/* 
+
     
     $sql = "SELECT a.Date, a.Time, p.LName FROM appointment as a, medical_practitioner as p 
 	WHERE PID='".$_SESSION['id']."' AND p.Employee_ID=a.Prac_ID";
@@ -224,7 +224,7 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
     echo "Dr ".$lname." at ".$time." on ".$date;
     echo"<br>";
     } 
-    mysqli_close($link); */
+    mysqli_close($link); 
     
 ?>
 	 <br>

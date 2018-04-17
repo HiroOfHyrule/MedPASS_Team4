@@ -49,22 +49,21 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
       
       <form  method="POST" action="MedPASS_AdminManagePatientInfo.php"> <!DATABASE TODO>
         
-        <label for="fname">Enter Patient's First Name:</label>
+        <!--<label for="fname">Enter Patient's First Name:</label>
 		<input type="text" id="fname" name="firstname" placeholder="First Name..">
 		<br>
         <label for="lname">Enter Patient's Last Name:</label>
 		<input type="text" id="lname" name="lastname" placeholder="Last Name..">
-		<br>
+		<br>-->
 		<label for="PID">Enter Patient ID:</label>
 		<input type="text" id="PID" name="patientID" placeholder="Patient ID..">
 		<br>
 	    <input type="submit" name="view" value="Search Patient">
         </form>
         <br>
-        <form  method="POST" action="MedPASS_AdminAddNewPatient.php"> <!DATABASE TODO>
+        <a href = "MedPASS_AdminAddNewPatient.php">
         <input type="submit" name="submit" value="Add New Patient">
-        </form>
-      </p>
+         </a>     </p>
 
     </div>
 

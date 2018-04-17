@@ -8,7 +8,12 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   header("location: MedPASS_Welcome.php");
   exit;
 }
-
+if(isset($_POST['submit'])) {
+		$sql = "INSER INTO assistance_equipment (Equip_ID, Equipment_Type, Num_In_Stock, Cost_Per_Month) 
+		VALUES('".$_POST['eqid']."','".$_POST['equipName']."','".$_POST['stock']."','".$_POST['cost']."')";
+		$result = db_query($sql);
+		db_close();
+		}
 ?>
 <!DOCTYPE html>
 <html>
@@ -63,7 +68,8 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 		<div id="mainContent" class="column" >
 			<h3>Rented Equipment</h3>
 				<!-- Insert list of rented equipments -->
-				<p><?php
+				
+				<?php
 $rows = db_select("SELECT p.FName, p.LName, E.Equipment_Type, R.Return_Date 
                 FROM patient as p, assistance_equipment as E, rents as R 
                     WHERE R.PID=p.Patient_ID AND R.Equip_ID=E.Equip_ID 
@@ -88,17 +94,46 @@ echo "</table>";
 ?></p>
 		</div>
 		<div id="sideBar" class="column" >
-			<h3>Available Equipment</h3>
+			<h3>All Equipment</h3>
 				<!-- Insert list of all avail equipments -->
-				<p>Insert equipments list here.</p>
+				<?php
+$rows = db_select("SELECT * FROM assistance_equipment");
+echo "<table class=\"table\">
+      <thead{vertical-align: left}>
+        <tr>
+           
+            <th>Equipment Type</th>
+            <th>Total Stock</th>
+			<th>Cost Per Month</th>
+            
+        </tr>
+      </thead>";
+foreach($rows as $value) {
+    echo "<tr>";
+    echo "<td>".$value['Equipment_Type']."";
+    echo "<td>".$value['Num_In_Stock']."</td>";
+    echo "<td>".$value['Cost_Per_Month']."</td>";
+    echo "</tr>";
+}
+echo "</table>";
+?>
 				<a onclick="toggle_add_equip()"><input type="submit" value="Add new equipment" style="width:50%;"></a>
 				<div id="add-new-equip" style="display:none;">
-					<form>
+					<form method="POST" action=""> 
 						<label for="ename" style="font-size:15px;">Equipment Name:</label>
 						<input type="text" id="ename" name="equipName" placeholder="...">
-						
+						<br>
+						<label for="eqid" style="font-size:15px;">Equipment ID:</label>
+						<input type="text" id="eqid" name="eqid" placeholder="...">
+						<br>
+						<label for="stock" style="font-size:15px;">Stock:</label>
+						<input type="text" id="stock" name="stock" placeholder="...">
+						<br>
+						<label for="cost" style="font-size:15px;">Cost Per Month:</label>
+						<input type="text" id="cost" name="cost" placeholder="...">
+					<br>
+					<input type="submit" name="submit" value="Submit"></a>
 					</form>
-					<a onclick="submit_add_equip()"><input type="submit" value="Submit"></a>
 				</div>
 		</div>
 		

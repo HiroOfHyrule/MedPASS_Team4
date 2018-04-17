@@ -45,12 +45,12 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
     <div class="container contentSubPage">
       <p>
       <form  method="POST" action="MedPASS_DoctorManagePatientInfo.php"> <!DATABASE TODO>
-		<label for="fname">Enter Patient's First Name:</label>
+		<!--<label for="fname">Enter Patient's First Name:</label>
 		<input type="text" id="fname" name="firstname" placeholder="First Name..">
 		<br>
         <label for="lname">Enter Patient's Last Name:</label>
 		<input type="text" id="lname" name="lastname" placeholder="Last Name..">
-		<br>
+		<br>-->
         <label for="PID">Enter Patient ID:</label>
 		<input type="text" id="PID" name="patientID" placeholder="Patient ID..">
 		<br>

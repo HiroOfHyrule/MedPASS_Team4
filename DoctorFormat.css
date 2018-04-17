@@ -249,32 +249,36 @@ input[type=submit]:hover {
 }
 
 
+table{
+  border-collapse: collapse;
+  width: 80%;
+ 
+}
+table, td, th, tr {
+ border: 1px solid black;
+ padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+tr:hover {background-color: #ddd;}
+
 th {
-	height: 30px;
-	text-align:center;
-	font-weight:700;
-	background:#e0e0e0;
+ padding-top: 5px;
+ padding-bottom: 5px;
+ text-align: left;
+ background-color: #54ad7c;
+ color: white;
 }
-
-td {
-	height:100px;
-}
-
-td:hover {
-	background-color: #d3d3d3;
-	cursor: pointer;
+tr {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
 }
 
 .today {
 	background:#4fb3bf;
 }
 
-th:nth-of-type(7),td:nth-of-type(7) {
-	color:blue;
-}
-th:nth-of-type(1),td:nth-of-type(1) {
-	color:red;
-}
 
 
 

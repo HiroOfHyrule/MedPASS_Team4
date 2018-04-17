@@ -12,6 +12,11 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
 if(isset($_POST['view'])) {
     $_SESSION['curPID'] = $_POST['patientID'];
 }
+if(isset($_POST['delete'])) {
+	$sql= "DELETE FROM patient WHERE Patient_ID='".$_SESSION['curPID']."'";
+	$result = db_query($sql);
+	db_close();
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -67,8 +72,8 @@ if(isset($_POST['view'])) {
       ?>
       <a href="MedPASS_AdminEditPatientInfo.php"><input type="submit" value="Edit Patient Info"></a> 
       <br>
-      <form  method="POST" action="MedPASS_AdminViewPatientInfo.php"> <!DATABASE TODO>
-      <a href="MedPASS_AdminViewPatientInfo.php"><input type="submit" value="Delete Patient"></a>
+      <form  method="POST" action=""> <!DATABASE TODO>
+      <input type="submit" name="delete" id="delete" value="Delete Patient"></a>
       </form>
       </p>
 
