@@ -111,7 +111,7 @@ if (isset($_POST['search'])) {
 		<label for="specialization">Specialization or Position:</label>
 		<input type="text" id="specialization" name="specialization" placeholder="<?php echo $specPos;?>">
 		<br>
-	  <input type="submit" name="submit" value="Submit Edit Info">
+	  <input type="submit" name="submit" value="Edit Info">
       </form>
       </p>
 

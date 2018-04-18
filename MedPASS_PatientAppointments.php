@@ -10,7 +10,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   exit;
 }
 if(!empty($_POST['bookAPP'])){
-        echo "LOL";
+       
 }
 
 ?>
@@ -209,22 +209,35 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
 	   <?php
 
     
-    $sql = "SELECT a.Date, a.Time, p.LName FROM appointment as a, medical_practitioner as p 
+    $sql = "SELECT a.Date, a.Time, p.LName, App_No FROM appointment as a, medical_practitioner as p 
 	WHERE PID='".$_SESSION['id']."' AND p.Employee_ID=a.Prac_ID";
-
-    $result = mysqli_query($link, $sql);
-    if(!$result) {
-    echo "Error: " . $sql . "<br>" . mysqli_error($link);
-    }
-
-    while ($row = mysqli_fetch_array($result)) {
-    $date = $row['Date'];
-	$time = $row['Time'];
-	$lname = $row['LName'];
-    echo "Dr ".$lname." at ".$time." on ".$date;
-    echo"<br>";
-    } 
-    mysqli_close($link); 
+	$rows = db_select($sql);
+    echo "<table class=\"table\">
+      <thead{vertical-align: left}>
+        <tr>
+            
+            <th>Doctor</th>
+            
+            <th>Date</th>
+            <th>Time</th>
+			<th></th>
+            
+        </tr>
+      </thead>";
+foreach($rows as $value) {
+    echo "<tr>";
+    
+    echo "<td>Dr ".$value['LName']."</td>";
+   
+    echo "<td>".$value['Date']."</td>";
+    echo "<td>".$value['Time']."</td>";
+	echo "<td><form action='deleteApp.php' name='".$value['App_No']."' method='post'>
+        <input type='hidden' name='App_No' value='".$value['App_No']."'>
+        <input type='submit' name='delete' value='Delete'>
+    </form></td>";
+    echo "</tr>";
+}
+echo "</table>";
     
 ?>
 	 <br>
@@ -234,44 +247,7 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
 	
 	<div id="book-appt" class="container contentSubPage" >
     <?php include 'hopeful.php'; ?>
-	<!--	<form method="POST" action="addAppointment.php">
-			
-			<label for="drname">Doctor's name:</label>
-            <?php
-            
-            /* $query = "SELECT LName, Employee_ID FROM medical_practitioner";
-            $result = mysqli_query($link,$query);
-            if(!$result) {
-                echo "Error: " . $query . "<br>" . mysqli_error($link);
-            }
-            echo "<select name=\"drname\">";
-            
-            while($row = mysqli_fetch_array($result)) {
-                echo "<option value='".$row['Employee_ID']."'>Dr ".$row['LName']."</option>";
-            }
-            echo "</select>";
-            mysqli_close($link); */
-            ?>
-			
-			
-		
 	
-			<div id="avail-dates" >
-				<label for="appt-date">Date:</label>
-				
-				<input type="date" id="appt-date" name="appointmentdate">
-				
-				
-			</div>
-		
-		
-			<div id="avail-times" >
-				<label for="appointmenttime">Time:</label>
-				<input type="text" id="appointmenttime" name="appointmenttime" placeholder="Enter time..">
-				
-				<a><input id="book-appt" type="submit" name="submit" value="Book This Appointment" style="width:300px;"></a>
-			</div>
-		</form>-->
 	  
 
      

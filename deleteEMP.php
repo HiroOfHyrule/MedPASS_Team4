@@ -2,7 +2,7 @@
 
 // Initialize the session
 session_start();
- 
+//include 'db_functions.php';
 // If session variable is not set it will redirect to login page
 if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   header("location: MedPASS_Welcome.php");
@@ -20,7 +20,7 @@ if(isset($_POST['delete'])) {
 		$table = "administrative_staff";	
 	}
 	
-	$query = "DELETE FROM '$table' WHERE Employee_ID = '$eid'";
+	$query = "DELETE FROM $table WHERE Employee_ID = $eid";
 	if (mysqli_query($link, $query)) {
 	} else {
 		echo "Error: " . $query . "<br>" . mysqli_error($link);

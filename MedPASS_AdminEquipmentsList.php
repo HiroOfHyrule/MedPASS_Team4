@@ -9,7 +9,7 @@ if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
   exit;
 }
 if(isset($_POST['submit'])) {
-		$sql = "INSER INTO assistance_equipment (Equip_ID, Equipment_Type, Num_In_Stock, Cost_Per_Month) 
+		$sql = "INSERT INTO assistance_equipment (Equip_ID, Equipment_Type, Num_In_Stock, Cost_Per_Month) 
 		VALUES('".$_POST['eqid']."','".$_POST['equipName']."','".$_POST['stock']."','".$_POST['cost']."')";
 		$result = db_query($sql);
 		db_close();
@@ -50,7 +50,7 @@ if(isset($_POST['submit'])) {
         <div class="menu">
           <ul>
 			<li><a href="MedPASS_AdminHome.php">Home</a></li>
-            <li><a href="MedPASS_Welcome.php">Logout</a></li>
+            <li><a href="logout.php">Logout</a></li>
           </ul>
         </div>
       </nav>

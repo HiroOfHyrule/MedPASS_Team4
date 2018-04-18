@@ -169,7 +169,7 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
 	
 
 	<div class="container contentSubPage">
-      <p>
+      <p><?php include 'hopefulAdmin.php'; ?>
       <?php
         
 
@@ -184,6 +184,7 @@ for ( $day = 1; $day <= $day_count; $day++, $str++) {
             <th>Appointment Number</th>
             <th>Date</th>
             <th>Time</th>
+			<th></th>
             
         </tr>
       </thead>";
@@ -194,6 +195,10 @@ foreach($rows as $value) {
     echo "<td>".$value['App_No']."</td>";
     echo "<td>".$value['Date']."</td>";
     echo "<td>".$value['Time']."</td>";
+	echo "<td><form action='deleteApp.php' name='".$value['App_No']."' method='post'>
+        <input type='hidden' name='App_No' value='".$value['App_No']."'>
+        <input type='submit' name='delete' value='Delete'>
+    </form></td>";
     echo "</tr>";
 }
 echo "</table>";

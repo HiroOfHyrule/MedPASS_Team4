@@ -1,11 +1,14 @@
 <?php
 session_start();
-include 'config.php';
-    if (!$link) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
+include 'db_functions.php';
+    
     if (isset($_POST['submit'])) { 
-        $query="UPDATE medical_practitioner SET";
+		if($_SESSION['role']=='doc') {
+			$table = "medical_practitioner";
+		} else {
+			$table = "administrative_staff";
+		}
+        $query="UPDATE ".$table." SET";
         if (!empty($_POST['firstname']))
             {
             $query.=" FName='" . $_POST['firstname']."',";
@@ -43,15 +46,14 @@ include 'config.php';
             $query.=" Reg_No='" .$_POST['regNo']."',";
             }
         $query = substr($query,0,-1);
-        $query.=" WHERE Employee_ID ='".$_SESSION['id']."'";
-        if (!mysqli_query($link, $query)) {
-            echo "Error updating record: " . mysqli_error($link);
-        }
+        $query.=" WHERE Employee_ID ='".$_SESSION['curEID']."'";
+        $result = db_query($query);
+		echo $query."<br>".$result;
         header("Location: MedPASS_AdminManageEmpInfo.php");
         exit(); 
     }
     
-    mysqli_close($link);
+    db_close();
 
 
 ?>
